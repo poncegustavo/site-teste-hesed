@@ -11,58 +11,55 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>General [Seu Nome]</h1>
-            <p>A Serviço no Exército de São Miguel</p>
-        </div>
-    </header>
-
     <nav>
         <div class="container">
-            <a href="#missao">A Missão</a>
-            <a href="#exercito">O Exército</a>
-            <a href="#junte-se">Junte-se ao Pelotão</a>
-            <a href="#contato">Contato</a>
+            <a href="#hero" class="nav-brand">General [Seu Nome]</a>
+            <div class="nav-links">
+                <a href="#missao">A Missão</a>
+                <a href="#exercito">O Exército</a>
+                <a href="#junte-se">Junte-se ao Pelotão</a>
+                <a href="#contato">Contato</a>
+            </div>
         </div>
     </nav>
 
-    <main>
-        <section id="hero">
-            <div class="container">
-                <h2>"Quem como Deus? Ninguém!"</h2>
-                <p>Liderando almas no bom combate da fé e da oração.</p>
-            </div>
-        </section>
+    <header id="hero">
+        <div class="hero-content">
+            <h1>"Quem como Deus? Ninguém!"</h1>
+            <p>Liderando almas no bom combate da fé e da oração.</p>
+        </div>
+    </header>
 
-        <section id="missao" class="content-section">
-            <div class="container">
+    <main>
+        <section id="missao" class="animated-section">
+            <div class="container card">
                 <div class="flex-container">
-                    <div class="text-content">
-                        <h3>A Missão do General</h3>
-                        <p>Minha jornada no Exército de São Miguel é um chamado divino. Como General, dedico minha vida a ser um intercessor e guia espiritual, organizando nosso pelotão de oração para a batalha espiritual diária. Nossa missão é viver e proclamar a Misericórdia de Deus através da oração incessante, buscando a conversão dos corações e a paz no mundo, como nos pede Nossa Senhora.</p>
-                        <p>Acreditamos na força da humildade, da adoração e do serviço como armas poderosas contra o mal. Cada alma que se junta a nós fortalece nossas fileiras e apressa o triunfo do Imaculado Coração de Maria.</p>
-                    </div>
                     <div class="image-content">
                         <img src="sua-foto.jpg" alt="Foto do General [Seu Nome]">
+                    </div>
+                    <div class="text-content">
+                        <h2>A Missão do General</h2>
+                        <p>Minha jornada no Exército de São Miguel é um chamado divino. Como General, dedico minha vida a ser um intercessor e guia espiritual, organizando nosso pelotão de oração para a batalha espiritual diária. Nossa missão é viver e proclamar a Misericórdia de Deus através da oração incessante, buscando a conversão dos corações e a paz no mundo.</p>
+                        <p>Acreditamos na força da humildade, da adoração e do serviço como armas poderosas contra o mal. Cada alma que se junta a nós fortalece nossas fileiras e apressa o triunfo do Imaculado Coração de Maria.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="exercito" class="content-section-dark">
-            <div class="container">
-                <h3>O Exército de São Miguel</h3>
+        <section id="exercito" class="animated-section">
+            <div class="container card">
+                <h2>O Exército de São Miguel</h2>
                 <p>O Exército de São Miguel, inspirado pelo trabalho do Instituto Hesed, é uma grande família de oração. Não lutamos com espadas, mas com a fé. Não marchamos em campos de batalha, mas nos colocamos em adoração diante do Santíssimo Sacramento. Somos um exército de adoradores que, desde a madrugada até o anoitecer, abraça o mundo com a sua oração.</p>
                 <p>Sob o comando do Arcanjo São Miguel, o generalíssimo do exército celestial, enfrentamos as batalhas da vida com a certeza da vitória em Cristo. Nosso lema, "Quem como Deus? Ninguém!", é o nosso grito de guerra e a nossa profissão de fé.</p>
             </div>
         </section>
 
-        <section id="junte-se" class="content-section">
-            <div class="container">
-                <h3>Junte-se ao Pelotão de Oração</h3>
+        <section id="junte-se" class="animated-section">
+            <div class="container card">
+                <h2>Junte-se ao Pelotão de Oração</h2>
                 <p>Você também é chamado a ser um soldado neste exército de fé. Ao se juntar ao nosso pelotão, você receberá formação espiritual, pedidos de oração e a força de uma comunidade que reza unida. Preencha o formulário abaixo e venha lutar conosco.</p>
-                <form>
+                
+                <form action="obrigado.html">
                     <input type="text" name="nome" placeholder="Seu Nome Completo" required>
                     <input type="email" name="email" placeholder="Seu Melhor E-mail" required>
                     <button type="submit" class="cta-button">Quero me Alistar!</button>
@@ -75,9 +72,24 @@
         <div class="container">
             <p>Para pedidos de oração, convites ou outras solicitações, entre em contato.</p>
             <p><strong>Email:</strong> general@exercitodesaomiguel.com</p>
-            <p>&copy; 2024 General [Seu Nome] - Todos os Direitos Reservados.</p>
+            <p>&copy; 2025 General [Seu Nome] - Todos os Direitos Reservados.</p>
         </div>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animated-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>

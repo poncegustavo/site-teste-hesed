@@ -1,159 +1,70 @@
-/* --- 1. CONFIGURAÇÃO GLOBAL E FONTES (LORA + MONTSERRAT) --- */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700&display=swap');
+/* ... (Todo o código CSS da nossa última versão) ... */
+/* Adicionando novos estilos para as páginas de login/cadastro */
 
-:root {
-    --color-background: #101010; /* Preto mais profundo */
-    --color-surface: #181818;   /* Superfície de seções */
-    --color-primary: #FFFFFF;
-    --color-secondary: #B3B3B3;
-    --color-accent: #3A7CA5; /* Azul elétrico, como solicitado */
-    --color-border: rgba(58, 124, 165, 0.25);
-
-    --font-heading: 'Lora', serif;
-    --font-body: 'Montserrat', sans-serif;
-    
-    --container-width: 1100px;
-    --border-radius: 8px;
-    --transition-speed: 0.3s;
-}
-
-/* --- 2. RESET E ESTILOS GLOBAIS --- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-    font-family: var(--font-body);
-    background-color: var(--color-background);
-    color: var(--color-primary);
-    line-height: 1.7;
-    font-size: 16px;
-    overflow-x: hidden;
-}
-.container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
-img { max-width: 100%; height: auto; display: block; }
-
-/* --- 3. BOTÕES E LINKS --- */
-.cta-button {
-    display: inline-block;
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all var(--transition-speed) ease;
-    border: 2px solid transparent;
-}
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(58, 124, 165, 0.2);
-}
-.secondary-button {
-    background-color: transparent;
-    border: 2px solid var(--color-border);
-}
-.secondary-button:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-}
-
-/* --- 4. HERO SECTION --- */
-.hero {
-    height: 100vh;
+.auth-page {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 1rem;
-    background: linear-gradient(rgba(18, 18, 18, 0.8), var(--color-background)), url('https://images.unsplash.com/photo-1615820020353-83433a62b453?q=80&w=1887&auto=format&fit=crop') no-repeat center center/cover;
-}
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 4.5rem;
-    color: var(--color-primary);
-    line-height: 1.1;
-    max-width: 800px;
-    margin-bottom: 1.5rem;
-}
-.hero p {
-    font-size: 1.25rem;
-    color: var(--color-secondary);
-    max-width: 600px;
-    margin-bottom: 2.5rem;
+    min-height: 100vh;
+    padding: 2rem;
+    margin-top: 0;
 }
 
-/* --- 5. SEÇÕES DE CONTEÚDO --- */
-.content-section { padding: 6rem 0; }
-.content-section.darker { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);}
-
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-.section-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-secondary);
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 4rem auto;
-}
-.section-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    align-items: center;
-    gap: 5rem;
-}
-.section-grid.reverse {
-    grid-template-columns: 1.2fr 1fr;
-}
-.section-grid.reverse .section-text {
-    order: 2;
-}
-.section-image img {
+.auth-card {
+    background-color: var(--color-surface);
+    padding: 2rem;
     border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
 }
-.section-text h3 {
-    font-family: var(--font-heading);
+
+.auth-card .nav-logo {
+    height: 60px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.auth-card h1 {
     font-size: 2rem;
-    color: var(--color-accent);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-/* --- 6. SEÇÃO FINAL (CTA) --- */
-#cta-final {
-    text-align: center;
-}
-#cta-final .section-title {
-    color: var(--color-primary);
-}
-#cta-final .cta-button {
-    margin-top: 2rem;
-    font-size: 1.2rem;
-    padding: 1.2rem 3rem;
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
 }
 
-/* --- 7. RODAPÉ --- */
-.footer {
-    padding: 2rem 0;
-    text-align: center;
-    color: var(--color-secondary);
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
     font-size: 0.9rem;
-    border-top: 1px solid #2a2a2a;
 }
 
-/* --- 8. RESPONSIVIDADE --- */
-@media (max-width: 768px) {
-    h1 { font-size: 2.8rem; }
-    .section-title { font-size: 2.2rem; }
-    .section-grid, .section-grid.reverse {
-        grid-template-columns: 1fr;
-    }
-    .section-grid.reverse .section-text {
-        order: 0;
-    }
+.form-group input {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    color: var(--color-primary);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.auth-form .cta-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.auth-link {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+.auth-link a {
+    font-weight: 700;
 }

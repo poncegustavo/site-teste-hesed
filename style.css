@@ -1,4 +1,6 @@
 /* --- 1. CONFIGURAÇÃO GLOBAL E FONTES (LORA + MONTSERRAT) --- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700&display=swap');
+
 :root {
     --color-background: #121212;
     --color-surface: #1E1E1E;
@@ -101,7 +103,7 @@ a { color: var(--color-accent); text-decoration: none; }
 #cta-final .cta-button { margin-top: 2rem; font-size: 1.2rem; padding: 1.2rem 3rem; }
 .cta-card { background: var(--color-surface); border: 1px solid var(--color-border); padding: 4rem; border-radius: var(--border-radius); text-align: center; }
 
-/* --- 7. PÁGINAS INTERNAS (COMO A 'SOBRE') --- */
+/* --- 7. PÁGINAS INTERNAS (SOBRE, EXÉRCITO) --- */
 .page-header {
     margin-top: 77px; /* Altura da Navbar */
     padding: 5rem 0;
@@ -112,38 +114,44 @@ a { color: var(--color-accent); text-decoration: none; }
 .page-header h1 { font-size: 3rem; }
 .page-header p { font-size: 1.2rem; color: var(--color-secondary); }
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 4rem;
-    align-items: flex-start;
-}
-.about-image img {
-    border-radius: var(--border-radius);
-    position: sticky; /* Efeito "grudento" ao rolar */
-    top: 120px; /* Distância do topo após a navbar */
-}
-.about-text h3 {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    color: var(--color-accent);
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-}
-.about-text p {
-    font-size: 1.1rem;
-    color: var(--color-secondary);
-    margin-bottom: 1rem;
-}
-.about-text p:first-of-type {
-    font-size: 1.2rem;
-    color: var(--color-primary);
-}
+.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: flex-start; }
+.about-image img { border-radius: var(--border-radius); position: sticky; top: 120px; }
+.about-text h3 { font-family: var(--font-heading); font-size: 1.75rem; color: var(--color-accent); margin-top: 2.5rem; margin-bottom: 1rem; }
+.about-text p { font-size: 1.1rem; color: var(--color-secondary); margin-bottom: 1rem; }
+.about-text p:first-of-type { font-size: 1.2rem; color: var(--color-primary); }
 
-/* --- 8. RODAPÉ --- */
+/* --- 8. ESTILOS PARA PÁGINA DE FORMAÇÃO --- */
+.article-grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.article-card {
+    background-color: var(--color-surface);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--color-primary);
+    display: flex; flex-direction: column;
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-speed) ease-in-out;
+}
+.article-card:hover { transform: translateY(-5px); border-color: var(--color-accent); }
+.article-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
+.article-card .article-image { height: 200px; background-size: cover; background-position: center; }
+.article-card.featured .article-image { height: 100%; min-height: 300px; }
+.article-card .article-content { padding: 1.5rem; }
+.article-category { font-size: 0.8rem; font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.article-content h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem; }
+.article-content p { font-size: 0.9rem; color: var(--color-secondary); line-height: 1.6; }
+
+/* --- 9. ESTILOS PARA PÁGINA DE ARTIGO INDIVIDUAL --- */
+.article-header { background-size: cover; background-position: center; background-attachment: scroll; }
+.article-category-header { font-size: 1rem; font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 2px; }
+.article-header h1 { max-width: 800px; margin: 1rem auto 0 auto; }
+.article-body { max-width: 750px; font-size: 1.1rem; line-height: 1.9; margin: 0 auto; }
+.article-body h3 { font-family: var(--font-heading); font-size: 1.75rem; color: var(--color-accent); margin-top: 3rem; margin-bottom: 1.5rem; }
+
+/* --- 10. RODAPÉ --- */
 .footer { padding: 2rem 0; text-align: center; color: var(--color-secondary); font-size: 0.9rem; border-top: 1px solid #2a2a2a; }
 
-/* --- 9. RESPONSIVIDADE --- */
+/* --- 11. RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     body { font-size: 15px; }
     .main-nav { display: none; }
@@ -154,5 +162,6 @@ a { color: var(--color-accent); text-decoration: none; }
     .section-grid, .section-grid.reverse, .about-grid { grid-template-columns: 1fr; }
     .section-grid.reverse .section-text { order: 0; }
     .section-image { margin-bottom: 2rem; }
-    .about-image img { position: static; } /* Desativa efeito grudento no mobile */
+    .about-image img { position: static; }
+    .article-grid-container, .article-card.featured { grid-template-columns: 1fr; }
 }

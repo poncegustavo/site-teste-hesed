@@ -1,13 +1,14 @@
-/* --- 1. CONFIGURAÇÃO GLOBAL E FONTES (LORA + MONTSERRAT) --- */
+/* --- 1. CONFIGURAÇÃO GLOBAL E VARIÁVEIS DE TEMA --- */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700&display=swap');
 
+/* TEMA DARK (PADRÃO) */
 :root {
-    --color-background: #121212; /* Preto espacial */
-    --color-surface: #1E1E1E;   /* Superfície de seções e cards */
-    --color-primary: #FFFFFF;
-    --color-secondary: #A0A0A0;
-    --color-accent: #3A7CA5; /* Azul elétrico */
-    --color-border: rgba(58, 124, 165, 0.2);
+    --color-background: #121212;
+    --color-surface: #1E1E1E;
+    --color-primary-text: #EAEAEA;
+    --color-secondary-text: #A0A0A0;
+    --color-accent: #3A7CA5;
+    --color-border: rgba(58, 124, 165, 0.25);
 
     --font-heading: 'Lora', serif;
     --font-body: 'Montserrat', sans-serif;
@@ -17,84 +18,122 @@
     --transition-speed: 0.3s;
 }
 
+/* TEMA LIGHT (ATIVADO VIA JAVASCRIPT) */
+body.light-theme {
+    --color-background: #F8F9FA;
+    --color-surface: #FFFFFF;
+    --color-primary-text: #212529;
+    --color-secondary-text: #6C757D;
+    --color-accent: #0D2D5B;
+    --color-border: #E9ECEF;
+}
+
 /* --- 2. RESET E ESTILOS GLOBAIS --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-body);
     background-color: var(--color-background);
-    color: var(--color-primary);
+    color: var(--color-primary-text);
     line-height: 1.7;
     font-size: 16px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 .container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--color-accent); text-decoration: none; transition: filter var(--transition-speed); }
-a:hover { filter: brightness(1.2); }
+a { color: var(--color-accent); text-decoration: none; transition: color var(--transition-speed) ease; }
+a:hover { color: var(--color-primary-text); }
+h1,h2,h3,h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; color: var(--color-primary-text); }
 
-/* --- 3. CABEÇALHO DE NAVEGAÇÃO --- */
+/* --- 3. NAVEGAÇÃO E SELETOR DE TEMA--- */
 .navbar {
-    background: rgba(18, 18, 18, 0.85);
+    background: rgba(18, 18, 18, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid #2a2a2a;
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    transition: background-color var(--transition-speed), border-bottom-color var(--transition-speed);
+}
+body.light-theme .navbar {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom-color: var(--color-border);
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
 .nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
 .nav-logo { height: 45px; }
-.nav-brand-text { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); }
+.nav-brand-text { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary-text); }
 .main-nav { display: flex; align-items: center; }
-.main-nav a { font-weight: 700; color: var(--color-secondary); text-decoration: none; margin-left: 2rem; transition: color var(--transition-speed); }
-.main-nav a:hover, .main-nav a.active { color: var(--color-primary); }
-.nav-button { background-color: var(--color-accent); color: var(--color-primary); padding: 0.6rem 1.2rem; border-radius: var(--border-radius); font-weight: 700; text-transform: uppercase; font-size: 0.9rem;}
+.main-nav a { font-weight: 700; color: var(--color-secondary-text); text-decoration: none; margin-left: 1.5rem; padding: 0.5rem; }
+.main-nav a:hover, .main-nav a.active { color: var(--color-primary-text); }
+.nav-button { background-color: var(--color-accent); color: var(--color-primary); padding: 0.6rem 1.2rem; border-radius: var(--border-radius); font-weight: 700; text-transform: uppercase; font-size: 0.9rem; margin-left: 1.5rem;}
+body.light-theme .nav-button { color: #FFFFFF; }
 .nav-button:hover { filter: brightness(1.2); text-decoration: none; }
-.hamburger { display: none; } /* Escondido por padrão */
 
-/* --- 4. HERO SECTION (TOPO) --- */
-.hero {
-    height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center; padding: 1rem;
-    background: linear-gradient(rgba(18, 18, 18, 0.7), var(--color-background)), url('https://poncegustavo.github.io/site-teste-hesed/images/background-hero.jpg') no-repeat center center/cover;
+.theme-switcher {
+    background: none; border: 1px solid var(--color-border); color: var(--color-secondary-text); 
+    width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-left: 1rem;
+    transition: color 0.3s, border-color 0.3s;
 }
-.hero h1 { font-family: var(--font-heading); font-size: 4rem; color: var(--color-primary); line-height: 1.2; max-width: 800px; margin-bottom: 1rem; }
-.hero p { font-size: 1.25rem; color: var(--color-secondary); max-width: 700px; margin-bottom: 2.5rem; }
-.hero .cta-button { font-size: 1.1rem; padding: 1.2rem 3rem; border-radius: 50px; }
+.theme-switcher:hover { color: var(--color-accent); border-color: var(--color-accent); }
+.icon-moon { display: none; }
+body.light-theme .icon-sun { display: none; }
+body.light-theme .icon-moon { display: block; }
+.hamburger { display: none; }
 
-/* --- 5. SEÇÕES DE CONTEÚDO DA LANDING PAGE --- */
-.content-section { padding: 6rem 0; }
+/* --- 4. LAYOUTS DE PÁGINA --- */
+.page-header { margin-top: 73px; padding: 5rem 1rem; text-align: center; border-bottom: 1px solid var(--color-border); background-color: var(--color-surface); }
+.page-header h1 { font-size: 3rem; }
+.page-header p { font-size: 1.2rem; color: var(--color-secondary-text); max-width: 600px; margin: 1rem auto 0 auto;}
+.content-section { padding: 5rem 0; }
 .darker-section { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-
-.section-title { font-family: var(--font-heading); font-size: 3rem; text-align: center; margin-bottom: 1.5rem; }
-.section-subtitle { font-size: 1.1rem; color: var(--color-secondary); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
-
+.section-title { font-size: 3rem; text-align: center; margin-bottom: 1.5rem; }
+.section-subtitle { font-size: 1.1rem; color: var(--color-secondary-text); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
 .section-grid { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 5rem; }
-.section-grid.reverse { grid-template-columns: 1.2fr 1fr; }
-.section-grid.reverse .section-text { order: 2; }
-.section-image img { border-radius: var(--border-radius); }
-.section-text h3 { font-family: var(--font-heading); font-size: 2rem; color: var(--color-accent); margin-bottom: 1.5rem; }
-.section-text p { color: var(--color-secondary); }
-.section-text .cta-button { margin-top: 2rem; }
-.cta-card { background: var(--color-surface); border: 1px solid var(--color-border); padding: 4rem; border-radius: var(--border-radius); text-align: center; }
+.section-text h3 { font-size: 2rem; color: var(--color-accent); margin-bottom: 1.5rem; }
+.section-text p { color: var(--color-secondary-text); }
+.cta-button.secondary-button { background-color: transparent; border: 2px solid var(--color-border); color: var(--color-primary-text); margin-top: 2rem; }
+.cta-button.secondary-button:hover { background-color: var(--color-accent); border-color: var(--color-accent); color: #FFFFFF; }
+.text-center { text-align: center; }
 
-/* --- 6. RODAPÉ --- */
-.footer { padding: 3rem 0; text-align: center; color: var(--color-secondary); font-size: 0.9rem; background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
+/* --- 5. FORMULÁRIOS DE LOGIN/CADASTRO --- */
+.auth-page { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
+.auth-card { background-color: var(--color-surface); padding: 2.5rem; border-radius: var(--border-radius); border: 1px solid var(--color-border); width: 100%; max-width: 450px; text-align: center; }
+.auth-card h1 { font-size: 2rem; }
+.auth-form { display: flex; flex-direction: column; gap: 1.5rem; text-align: left; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: 700; font-size: 0.9rem; }
+.form-group input { width: 100%; padding: 0.9rem 1rem; background-color: var(--color-background); border: 1px solid var(--color-border); color: var(--color-primary-text); border-radius: var(--border-radius); font-size: 1rem; }
+.form-group input:focus { outline: none; border-color: var(--color-accent); }
+.auth-link { margin-top: 2rem; font-size: 0.9rem; }
+.gateway-card { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.gateway-option { padding: 2rem; text-align: center; border: 1px solid var(--color-border); border-radius: var(--border-radius); transition: background-color 0.3s, border-color 0.3s; }
+.gateway-option:hover { border-color: var(--color-accent); background-color: rgba(58, 124, 165, 0.1); }
+.gateway-option h3 { color: var(--color-accent); margin-bottom: 1rem; }
+.gateway-option p { font-size: 0.9rem; }
 
-/* --- 7. RESPONSIVIDADE --- */
-@media (max-width: 768px) {
+/* --- 6. BOTÃO FLUTUANTE DO WHATSAPP --- */
+.whatsapp-fab { position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: #FFFFFF; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 1000; transition: transform 0.3s ease; }
+.whatsapp-fab:hover { transform: scale(1.1); color: #FFFFFF; }
+.whatsapp-fab svg { width: 32px; height: 32px; fill: currentColor; }
+
+/* --- 7. RODAPÉ --- */
+.footer { padding: 3rem 0; text-align: center; color: var(--color-secondary-text); font-size: 0.9rem; background-color: var(--color-surface); border-top: 1px solid var(--color-border); }
+
+/* --- 8. RESPONSIVIDADE --- */
+@media (max-width: 992px) {
     .main-nav { display: none; }
-    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; color: var(--color-primary); cursor: pointer; }
-    .hero { padding-top: 80px; } /* Espaço para o menu fixo */
-    .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1rem; }
+    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; color: var(--color-primary-text); cursor: pointer; z-index: 1001; }
+    .main-nav.active { display: flex; position: fixed; top: 0; right: 0; width: 100%; height: 100vh; background-color: var(--color-background); flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; }
+    .main-nav.active a, .main-nav.active .nav-button { margin: 0; font-size: 1.5rem; }
+    .main-nav.active .theme-switcher { position: absolute; top: 1.1rem; right: 6rem; }
+}
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2.5rem; }
     .section-title { font-size: 2.2rem; }
-    .section-grid, .section-grid.reverse { grid-template-columns: 1fr; }
+    .section-grid { grid-template-columns: 1fr; }
     .section-grid .section-image { margin-bottom: 2rem; }
-    .section-grid.reverse .section-image { grid-row: 1; }
+    .gateway-card { grid-template-columns: 1fr; }
 }

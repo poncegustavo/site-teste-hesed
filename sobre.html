@@ -2,19 +2,14 @@
 <html lang="pt-br">
 <head>
     <title>Sobre a Missão | General Gustavo</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="nav-brand"><img src="images/image.png" alt="Logo" class="nav-logo"><span class="nav-brand-text">General Gustavo</span></a>
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="brand-logo"><img src="images/image.png" alt="Logo"><span class="brand-logo-text">General Gustavo</span></a>
             <nav class="main-nav" id="main-nav">
-                <a href="index.html">Início</a>
-                <a href="sobre.html" class="active">Sobre</a>
-                <a href="formacao.html">Formação</a>
-                <a href="aliste-se.html" class="nav-button">Aliste-se</a>
+                <a href="index.html">Início</a><a href="sobre.html" class="active">Sobre</a><a href="formacao.html">Formação</a><a href="aliste-se.html" class="nav-button">Aliste-se</a>
                 <button class="theme-switcher" id="theme-toggle" aria-label="Mudar tema"><span class="icon-sun">☀️</span><span class="icon-moon">🌙</span></button>
             </nav>
             <button class="hamburger" id="hamburger-menu">&#9776;</button>
@@ -22,14 +17,22 @@
     </header>
     <main>
         <header class="page-header">
-            <h1>O General e a Missão</h1>
-            <p>Conheça a liderança e o propósito do Grupo Batalha no Céu.</p>
+            <div class="container"><h1>O General e a Missão</h1><p>Conheça a liderança e o propósito do Grupo Batalha no Céu.</p></div>
         </header>
-        </main>
+        <section class="content-section">
+            <div class="container">
+                <div class="grid-container" style="gap: 3rem;">
+                    <div class="grid-image"><img src="images/sua-foto.jpg" alt="General Gustavo" style="border-radius: var(--border-radius);"></div>
+                    <div class="grid-text">
+                        <h3>O Que Significa Ser um General?</h3>
+                        <p>Para mim, ser um General no Exército de São Miguel não tem relação com poder ou honras mundanas. É um chamado ao serviço, à responsabilidade e ao sacrifício. É a vocação para ser o primeiro a se colocar na brecha, o primeiro a vigiar e o último a descansar.</p>
+                        <p>Como administrador do <strong>Pelotão 7.9</strong>, minha responsabilidade é pastorear. Cada soldado no "Grupo Batalha no Céu" é uma alma confiada a mim por Deus. Significa cuidar para que não se percam na tibieza, para que tenham a formação doutrinal necessária e para que se sintam parte de uma verdadeira família que luta unida.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer class="footer"><div class="container"><p>&copy; 2025 - General Gustavo</p></div></footer>
-    <a href="https://chat.whatsapp.com/DIDJcbVlyW4AK61vnehBNQ" class="whatsapp-fab" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.61 15.34 3.48 16.81L2.1 21.9L7.29 20.52C8.71 21.32 10.33 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.24 20.93 6.78 19.05 4.9C17.17 3.02 14.71 2 12.04 2M9.13 7.8C8.89 7.24 8.7 7.22 8.51 7.21C7.73 7.2 7.44 7.28 7.18 7.54C6.93 7.8 6.26 8.42 6.26 9.58C6.26 10.74 7.2 11.86 7.34 12.04C7.49 12.21 8.84 14.42 11.09 15.31C13.34 16.2 13.91 15.96 14.36 15.91C14.81 15.86 15.82 15.29 16.06 14.73C16.3 14.17 16.3 13.71 16.23 13.59C16.16 13.46 15.82 13.26 15.61 13.14C14.49 12.58 14.26 12.49 14.03 12.4C13.74 12.6 13.06 13.46 12.92 13.6C12.42 13.64 11.23 13.19 10.08 12.14C9.13 11.28 8.52 10.27 8.38 10.03C8.24 9.79 8.36 9.64 8.49 9.51C8.76 9.2 8.88 9.06 9.13 8.7C9.2 8.58 9.16 8.45 9.13 8.34Z"></path></svg></a>
-    <script>
-        (function() { /* ... mesmo código JS do index.html ... */ })();
-    </script>
+    <script> /* ... Colar o mesmo bloco de JavaScript do index.html aqui ... */ </script>
 </body>
 </html>

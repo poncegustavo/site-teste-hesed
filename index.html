@@ -7,13 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="nav-brand"><img src="images/image.png" alt="Logo" class="nav-logo"><span class="nav-brand-text">General Gustavo</span></a>
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="brand-logo"><img src="images/image.png" alt="Logo" class="nav-logo"><span class="brand-logo-text">General Gustavo</span></a>
             <nav class="main-nav" id="main-nav">
-                <a href="index.html" class="active">Início</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="formacao.html">Formação</a>
+                <a href="index.html" class="active">Início</a><a href="sobre.html">Sobre</a><a href="formacao.html">Formação</a>
                 <a href="aliste-se.html" class="nav-button">Aliste-se</a>
                 <button class="theme-switcher" id="theme-toggle" aria-label="Mudar tema"><span class="icon-sun">☀️</span><span class="icon-moon">🌙</span></button>
             </nav>
@@ -21,36 +19,42 @@
         </div>
     </header>
     <main>
-        <section class="page-header" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(rgba(18,18,18,0.7), var(--color-background)), url('images/background-hero.jpg') no-repeat center center/cover;">
-            <h1>A Batalha Pela Sua Alma Começa Agora</h1>
-            <p>Junte-se ao Grupo Batalha no Céu e seja uma sentinela da fé no Exército de São Miguel.</p>
-            <a href="aliste-se.html" class="cta-button">Junte-se às Fileiras</a>
-        </section>
+        <header class="page-header" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; background-image: linear-gradient(rgba(18,18,18,0.7), var(--color-background)), url('images/background-hero.jpg'); background-size: cover; background-position: center;">
+            <div class="container">
+                <h1>A Batalha Pela Sua Alma Começa Agora</h1>
+                <p class="section-subtitle">Junte-se ao Grupo Batalha no Céu e seja uma sentinela da fé no Exército de São Miguel.</p>
+                <a href="aliste-se.html" class="cta-button">Junte-se às Fileiras</a>
+            </div>
+        </header>
         <section class="content-section">
-            <div class="container text-center">
-                <h2 class="section-title">Liderança Forjada no Combate</h2>
-                <p class="section-subtitle">Sob o comando do General Gustavo, administrador do Pelotão 7.9, nossa missão é forjar soldados para Cristo, com disciplina, estudo e uma vida de oração robusta.</p>
-                <a href="sobre.html" class="cta-button secondary-button">Conheça o General e a Missão</a>
+            <div class="container">
+                <div class="grid-container">
+                    <div class="grid-image"><img src="images/sua-foto.jpg" alt="General Gustavo" style="border-radius: var(--border-radius);"></div>
+                    <div class="grid-text">
+                        <h3>Liderança Forjada no Combate</h3>
+                        <p>Sob o comando do General Gustavo, administrador do Pelotão 7.9, o Grupo Batalha no Céu é uma frente de intercessão e formação. Nossa missão é forjar soldados para Cristo, com disciplina, estudo da sã doutrina e uma vida de oração robusta para a defesa da Santa Igreja.</p>
+                        <a href="sobre.html" class="cta-button secondary-button">Conheça a Missão</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="darker-section">
+            <div class="content-section container text-center">
+                <h2 class="section-title">Nossa Formação</h2>
+                <p class="section-subtitle">A tibieza é a ruína do soldado. Nossa formação é contínua e busca forjar guerreiros para Cristo, com uma vida de oração disciplinada e o estudo da sã doutrina.</p>
+                <a href="formacao.html" class="cta-button">Ver Conteúdo Formativo</a>
             </div>
         </section>
     </main>
     <footer class="footer"><div class="container"><p>&copy; 2025 - General Gustavo | Grupo Batalha no Céu</p></div></footer>
-    <a href="https://chat.whatsapp.com/DIDJcbVlyW4AK61vnehBNQ" class="whatsapp-fab" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.61 15.34 3.48 16.81L2.1 21.9L7.29 20.52C8.71 21.32 10.33 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.24 20.93 6.78 19.05 4.9C17.17 3.02 14.71 2 12.04 2M9.13 7.8C8.89 7.24 8.7 7.22 8.51 7.21C7.73 7.2 7.44 7.28 7.18 7.54C6.93 7.8 6.26 8.42 6.26 9.58C6.26 10.74 7.2 11.86 7.34 12.04C7.49 12.21 8.84 14.42 11.09 15.31C13.34 16.2 13.91 15.96 14.36 15.91C14.81 15.86 15.82 15.29 16.06 14.73C16.3 14.17 16.3 13.71 16.23 13.59C16.16 13.46 15.82 13.26 15.61 13.14C14.49 12.58 14.26 12.49 14.03 12.4C13.74 12.6 13.06 13.46 12.92 13.6C12.42 13.64 11.23 13.19 10.08 12.14C9.13 11.28 8.52 10.27 8.38 10.03C8.24 9.79 8.36 9.64 8.49 9.51C8.76 9.2 8.88 9.06 9.13 8.7C9.2 8.58 9.16 8.45 9.13 8.34Z"></path></svg></a>
     <script>
         (function() {
             const themeToggle = document.getElementById('theme-toggle');
             const hamburger = document.getElementById('hamburger-menu');
             const mainNav = document.getElementById('main-nav');
-            function applyTheme(theme) {
-                if (theme === 'light') document.body.classList.add('light-theme');
-                else document.body.classList.remove('light-theme');
-            }
-            themeToggle.addEventListener('click', () => {
-                let newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light';
-                localStorage.setItem('theme', newTheme);
-                applyTheme(newTheme);
-            });
-            hamburger.addEventListener('click', () => mainNav.classList.toggle('active'));
+            function applyTheme(theme) { if (theme === 'light') {document.body.classList.add('light-theme');} else {document.body.classList.remove('light-theme');}}
+            themeToggle.addEventListener('click', () => { let newTheme = document.body.classList.contains('light-theme') ? 'dark' : 'light'; localStorage.setItem('theme', newTheme); applyTheme(newTheme); });
+            hamburger.addEventListener('click', () => { mainNav.classList.toggle('active'); });
             const savedTheme = localStorage.getItem('theme') || 'dark';
             applyTheme(savedTheme);
         })();

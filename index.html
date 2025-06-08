@@ -4,44 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Gustavo | Grupo Batalha no Céu</title>
-    <link rel="stylesheet" href="/site-teste-hesed/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header class="hero">
-        <h1>A Batalha Pela Sua Alma Começa Agora</h1>
-        <p>Junte-se ao Grupo Batalha no Céu e seja uma sentinela da fé no Exército de São Miguel.</p>
-        <a href="cadastro.html" class="cta-button">Criar Conta e Alistar-se</a>
+        <div class="hero-content">
+            <img src="images/image.png" alt="Logo Grupo Batalha no Céu" class="hero-logo">
+            <h1>Grupo Batalha no Céu</h1>
+            <p>Pelotão 7.9 do Exército de São Miguel</p>
+            <a href="#missao" class="scroll-down-link">Descubra a Missão</a>
+        </div>
     </header>
+
     <main>
-        <section id="quem-somos" class="content-section">
+        <section id="missao" class="content-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-image">
-                        <img src="/site-teste-hesed/images/sua-foto.jpg" alt="General Gustavo">
+                        <img src="images/sua-foto.jpg" alt="General Gustavo">
                     </div>
                     <div class="section-text">
-                        <h3>Liderança Forjada no Combate</h3>
-                        <p>Sob o comando do General Gustavo, administrador do Pelotão 7.9, o Grupo Batalha no Céu é uma frente de intercessão e formação. Nossa missão é forjar soldados para Cristo, com disciplina, estudo da sã doutrina e uma vida de oração robusta para a defesa da Santa Igreja.</p>
+                        <h2 class="section-title">A Missão do General Gustavo</h2>
+                        <p>Nossa vocação é o combate espiritual. Como administrador do Pelotão 7.9, minha missão é forjar soldados para Cristo: almas disciplinadas na oração, firmes na doutrina e corajosas na intercessão pela Santa Igreja e pela salvação das almas. Não lutamos por glórias terrenas, mas pela Coroa da Vida Eterna.</p>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="cta-final" class="content-section darker">
+
+        <section id="exercito" class="content-section darker">
+            <div class="container text-center">
+                <h2 class="section-title">O Exército de São Miguel</h2>
+                <p class="section-subtitle">"São Miguel Arcanjo, defendei-nos no combate, sede o nosso refúgio contra as maldades e ciladas do demônio."</p>
+                <p>Somos uma milícia de oração a serviço da Igreja, inspirada pelo Instituto Hesed. Uma legião que se levanta nas madrugadas para, de joelhos, lutar as batalhas de Deus. Nossa principal arma é a oração da Quaresma de São Miguel e a devoção ao Santo Rosário.</p>
+            </div>
+        </section>
+
+        <section id="alistamento" class="content-section">
             <div class="container">
-                <h2 class="section-title">Faça Parte do Pelotão Batalha no Céu</h2>
-                <p class="section-subtitle">A tibieza não é uma opção. Se você sente o chamado para ser uma sentinela da fé e lutar pela salvação das almas, seu lugar é aqui.</p>
-                <a href="cadastro.html" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Junte-se a Nós</a>
+                <div class="cta-card">
+                    <h2 class="section-title">O Combate o Chama</h2>
+                    <p>A tibieza não é uma opção. Se você sente o chamado para ser uma sentinela da fé, seu lugar é aqui.</p>
+                    <form class="enlist-form" action="obrigado.html">
+                        <input type="email" placeholder="Digite seu melhor e-mail para se alistar" required>
+                        <button type="submit">Avançar</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
+
     <footer class="footer">
         <div class="container">
-            <p><a href="login.html" style="color: var(--color-secondary);">Login de Membros</a></p>
             <p>&copy; 2025 - General Gustavo | Grupo Batalha no Céu</p>
         </div>
     </footer>
+
 </body>
 </html>

@@ -1,30 +1,21 @@
 /* --- 1. CONFIGURAÇÃO GLOBAL E FONTES (LORA + MONTSERRAT) --- */
 :root {
-    --color-background: #121212; /* Preto espacial */
-    --color-surface: #1E1E1E; /* Superfície de cards */
+    --color-background: #121212;
+    --color-surface: #1E1E1E;
     --color-primary: #FFFFFF;
     --color-secondary: #A0A0A0;
-    --color-accent: #3A7CA5; /* Azul elétrico */
-
+    --color-accent: #3A7CA5;
+    --color-border: rgba(58, 124, 165, 0.25);
     --font-heading: 'Lora', serif;
     --font-body: 'Montserrat', sans-serif;
-    
     --container-width: 1100px;
     --border-radius: 12px;
-    --transition-speed: 0.5s;
+    --transition-speed: 0.3s;
 }
 
 /* --- 2. RESET E ESTILOS GLOBAIS --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-body);
     background-color: var(--color-background);
@@ -33,185 +24,135 @@ body {
     font-size: 16px;
     overflow-x: hidden;
 }
+.container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
+img { max-width: 100%; height: auto; display: block; }
 
-.container {
-    width: 90%;
-    max-width: var(--container-width);
-    margin: 0 auto;
+/* --- 3. BOTÕES E LINKS --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--transition-speed) ease;
+    border: 2px solid transparent;
 }
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(58, 124, 165, 0.2);
+}
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid var(--color-border);
+}
+.secondary-button:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+a { color: var(--color-accent); text-decoration: none; }
 
-/* --- 3. SEÇÃO HERO (TELA CHEIA) --- */
+/* --- 4. NAVEGAÇÃO --- */
+.navbar {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2a2a2a;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+.nav-logo { height: 45px; }
+.nav-brand-text { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); }
+.main-nav a { font-weight: 700; color: var(--color-secondary); text-decoration: none; margin-left: 2rem; transition: color var(--transition-speed); }
+.main-nav a:hover, .main-nav a.active { color: var(--color-primary); }
+.nav-button { background-color: var(--color-accent); color: var(--color-primary); padding: 0.6rem 1.2rem; border-radius: var(--border-radius); font-weight: 700; }
+.nav-button:hover { filter: brightness(1.2); text-decoration: none; }
+.hamburger { display: none; }
+
+/* --- 5. HERO (PÁGINA PRINCIPAL) --- */
 .hero {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 1rem;
+    background: linear-gradient(rgba(18, 18, 18, 0.7), var(--color-background)), url('images/background-hero.jpg') no-repeat center center/cover;
+}
+.hero h1 { font-family: var(--font-heading); font-size: 4.5rem; color: var(--color-primary); line-height: 1.1; max-width: 800px; margin-bottom: 1.5rem; }
+.hero p { font-size: 1.25rem; color: var(--color-secondary); max-width: 600px; margin-bottom: 2.5rem; }
+
+/* --- 6. SEÇÕES DE CONTEÚDO (PÁGINA PRINCIPAL) --- */
+.content-section { padding: 6rem 0; }
+.content-section.darker { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.section-title { font-family: var(--font-heading); font-size: 3rem; text-align: center; margin-bottom: 1rem; }
+.section-subtitle { font-size: 1.1rem; color: var(--color-secondary); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
+.section-grid { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 5rem; }
+.section-grid.reverse { grid-template-columns: 1.2fr 1fr; }
+.section-grid.reverse .section-text { order: 2; }
+.section-image img { border-radius: var(--border-radius); }
+.section-text h3 { font-family: var(--font-heading); font-size: 2rem; color: var(--color-accent); margin-bottom: 1.5rem; }
+#cta-final .cta-button { margin-top: 2rem; font-size: 1.2rem; padding: 1.2rem 3rem; }
+.cta-card { background: var(--color-surface); border: 1px solid var(--color-border); padding: 4rem; border-radius: var(--border-radius); text-align: center; }
+
+/* --- 7. PÁGINAS INTERNAS (COMO A 'SOBRE') --- */
+.page-header {
+    margin-top: 77px; /* Altura da Navbar */
+    padding: 5rem 0;
     text-align: center;
-    padding: 1rem;
-    background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 1)), url('images/background-hero.jpg') no-repeat center center/cover;
-}
-
-.hero-logo {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 2rem;
-}
-
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    letter-spacing: 1px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--color-secondary);
-    margin-top: 0.5rem;
-}
-
-.scroll-down-link {
-    color: var(--color-secondary);
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 4rem;
-    position: relative;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
-}
-
-/* --- 4. SEÇÕES DE CONTEÚDO --- */
-.content-section {
-    padding: 6rem 0;
-}
-
-.content-section.darker {
+    border-bottom: 1px solid var(--color-border);
     background-color: var(--color-surface);
 }
+.page-header h1 { font-size: 3rem; }
+.page-header p { font-size: 1.2rem; color: var(--color-secondary); }
 
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-bottom: 1rem;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background-color: var(--color-accent);
-}
-
-.text-center .section-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.section-subtitle {
-    font-size: 1.2rem;
-    color: var(--color-secondary);
-    font-style: italic;
-    max-width: 700px;
-    margin: -1rem auto 2rem auto;
-}
-
-.section-grid {
+.about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    grid-template-columns: 1fr 2fr;
     gap: 4rem;
+    align-items: flex-start;
 }
-
-.section-image img {
+.about-image img {
     border-radius: var(--border-radius);
-    width: 100%;
+    position: sticky; /* Efeito "grudento" ao rolar */
+    top: 120px; /* Distância do topo após a navbar */
 }
-
-/* --- 5. CARD DE CHAMADA PARA AÇÃO (CTA) --- */
-.cta-card {
-    background: var(--color-surface);
-    border: 1px solid #2a2a2a;
-    padding: 4rem;
-    border-radius: var(--border-radius);
-    text-align: center;
+.about-text h3 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--color-accent);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 }
-.cta-card .section-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.enlist-form {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.enlist-form input {
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    color: var(--color-primary);
-    padding: 1rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    width: 100%;
-    max-width: 400px;
-}
-
-.enlist-form button {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    border: none;
-    padding: 1rem 2.5rem;
-    border-radius: var(--border-radius);
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color var(--transition-speed);
-}
-
-.enlist-form button:hover {
-    background-color: #5aa9d1;
-}
-
-/* --- 6. RODAPÉ --- */
-.footer {
-    padding: 2rem 0;
-    text-align: center;
+.about-text p {
+    font-size: 1.1rem;
     color: var(--color-secondary);
-    font-size: 0.9rem;
-    border-top: 1px solid #2a2a2a;
+    margin-bottom: 1rem;
+}
+.about-text p:first-of-type {
+    font-size: 1.2rem;
+    color: var(--color-primary);
 }
 
-/* --- 7. RESPONSIVIDADE --- */
+/* --- 8. RODAPÉ --- */
+.footer { padding: 2rem 0; text-align: center; color: var(--color-secondary); font-size: 0.9rem; border-top: 1px solid #2a2a2a; }
+
+/* --- 9. RESPONSIVIDADE --- */
 @media (max-width: 768px) {
-    body { font-size: 14px; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1rem; }
-    .hero-logo { width: 80px; height: 80px; }
-    
-    .section-title { font-size: 2rem; }
-    .section-grid { grid-template-columns: 1fr; }
+    body { font-size: 15px; }
+    .main-nav { display: none; }
+    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; color: var(--color-primary); cursor: pointer; }
+    h1 { font-size: 2.8rem; }
+    .page-header h1 { font-size: 2.5rem; }
+    .section-title { font-size: 2.2rem; }
+    .section-grid, .section-grid.reverse, .about-grid { grid-template-columns: 1fr; }
+    .section-grid.reverse .section-text { order: 0; }
     .section-image { margin-bottom: 2rem; }
-    .content-section { padding: 4rem 0; }
-    
-    .enlist-form { flex-direction: column; align-items: center; }
+    .about-image img { position: static; } /* Desativa efeito grudento no mobile */
 }

@@ -4,47 +4,252 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Gustavo | Grupo Batalha no Céu</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. CONFIGURAÇÃO GLOBAL E FONTES (LORA + MONTSERRAT) --- */
+        :root {
+            --color-background: #121212; /* Preto espacial */
+            --color-surface: #1E1E1E; /* Superfície de cards */
+            --color-primary: #FFFFFF;
+            --color-secondary: #A0A0A0;
+            --color-accent: #3A7CA5; /* Azul elétrico */
+            --color-border: rgba(58, 124, 165, 0.25);
+
+            --font-heading: 'Lora', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            --container-width: 1100px;
+            --border-radius: 12px;
+            --transition-speed: 0.5s;
+        }
+
+        /* --- 2. RESET E ESTILOS GLOBAIS --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-primary);
+            line-height: 1.8;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        /* --- 3. SEÇÃO HERO (TELA CHEIA) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 1)), url('images/background-hero.jpg') no-repeat center center/cover;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .scroll-down-link {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 4rem;
+            position: relative;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* --- 4. SEÇÕES DE CONTEÚDO --- */
+        .content-section {
+            padding: 6rem 0;
+        }
+
+        .content-section.darker {
+            background-color: var(--color-surface);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-accent);
+        }
+
+        .text-center .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+            font-style: italic;
+            max-width: 700px;
+            margin: -1rem auto 2rem auto;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .section-image img {
+            border-radius: var(--border-radius);
+            width: 100%;
+        }
+
+        /* --- 5. CARD DE CHAMADA PARA AÇÃO (CTA) --- */
+        .cta-card {
+            background: var(--color-surface);
+            border: 1px solid #2a2a2a;
+            padding: 4rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        .cta-card .section-title::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .enlist-form {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .enlist-form input {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: var(--color-primary);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .enlist-form button {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+        }
+
+        .enlist-form button:hover {
+            background-color: #5aa9d1;
+        }
+
+        /* --- 6. RODAPÉ --- */
+        .footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--color-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        /* --- 7. RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            body { font-size: 14px; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1rem; }
+            .hero-logo { width: 80px; height: 80px; }
+            
+            .section-title { font-size: 2rem; }
+            .section-grid { grid-template-columns: 1fr; }
+            .section-image { margin-bottom: 2rem; }
+            .content-section { padding: 4rem 0; }
+            
+            .enlist-form { flex-direction: column; align-items: center; }
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="nav-brand">
-                <img src="images/image.png" alt="Logo" class="nav-logo">
-                <span class="nav-brand-text">General Gustavo</span>
-            </a>
-            <div class="main-nav">
-                <a href="index.html" class="active">Início</a>
-                <a href="sobre.html">Sobre</a>
-                <a href="exercito.html">O Exército</a>
-                <a href="formacao.html">Formação</a>
-                <a href="aliste-se.html" class="nav-button">Aliste-se</a>
-            </div>
-            <button class="hamburger">&#9776;</button>
-        </div>
-    </nav>
-
     <header class="hero">
-        <h1>A Batalha Pela Sua Alma Começa Agora</h1>
-        <p>Junte-se ao Grupo Batalha no Céu e seja uma sentinela da fé no Exército de São Miguel.</p>
-        <a href="#cta-final" class="cta-button">Entrar para o Pelotão</a>
+        <div class="hero-content">
+            <img src="images/image.png" alt="Logo Grupo Batalha no Céu" class="hero-logo">
+            <h1>Grupo Batalha no Céu</h1>
+            <p>Pelotão 7.9 do Exército de São Miguel</p>
+            <a href="#missao" class="scroll-down-link">Descubra a Missão</a>
+        </div>
     </header>
 
     <main>
-        <section id="quem-somos" class="content-section">
+        <section id="missao" class="content-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-image">
                         <img src="images/sua-foto.jpg" alt="General Gustavo">
                     </div>
                     <div class="section-text">
-                        <h3>Liderança Forjada no Combate</h3>
-                        <p>Sob o comando do General Gustavo, administrador do Pelotão 7.9, o Grupo Batalha no Céu é uma frente de intercessão e formação. Nossa missão é forjar soldados para Cristo, com disciplina, estudo da sã doutrina e uma vida de oração robusta para a defesa da Santa Igreja.</p>
-                        <a href="sobre.html" class="cta-button secondary-button">Conheça o General</a>
+                        <h2 class="section-title">A Missão do General Gustavo</h2>
+                        <p>Nossa vocação é o combate espiritual. Como administrador do Pelotão 7.9, minha missão é forjar soldados para Cristo: almas disciplinadas na oração, firmes na doutrina e corajosas na intercessão pela Santa Igreja e pela salvação das almas. Não lutamos por glórias terrenas, mas pela Coroa da Vida Eterna.</p>
                     </div>
                 </div>
             </div>
@@ -52,18 +257,21 @@
 
         <section id="exercito" class="content-section darker">
             <div class="container text-center">
-                <h2 class="section-title">O Que é o Exército de São Miguel?</h2>
-                <p class="section-subtitle">O Exército de São Miguel é um apostolado mundial do Instituto Hesed. Uma milícia de almas que se levanta para combater o mal através da adoração e da intercessão. Nossa principal arma é a Quaresma de São Miguel e a devoção diária ao Santo Rosário.</p>
-                <a href="exercito.html" class="cta-button secondary-button">A História do Exército</a>
+                <h2 class="section-title">O Exército de São Miguel</h2>
+                <p class="section-subtitle">"São Miguel Arcanjo, defendei-nos no combate, sede o nosso refúgio contra as maldades e ciladas do demônio."</p>
+                <p>Somos uma milícia de oração a serviço da Igreja, inspirada pelo Instituto Hesed. Uma legião que se levanta nas madrugadas para, de joelhos, lutar as batalhas de Deus. Nossa principal arma é a oração da Quaresma de São Miguel e a devoção ao Santo Rosário.</p>
             </div>
         </section>
 
-        <section id="cta-final" class="content-section">
+        <section id="alistamento" class="content-section">
             <div class="container">
                 <div class="cta-card">
                     <h2 class="section-title">O Combate o Chama</h2>
-                    <p>A tibieza não é uma opção. Se você sente o chamado para ser uma sentinela da fé e lutar pela salvação das almas, seu lugar é aqui.</p>
-                    <a href="https://chat.whatsapp.com/DIDJcbVlyW4AK61vnehBNQ" target="_blank" class="cta-button" style="font-size: 1.2rem; padding: 1.2rem 3rem;">Entrar no Grupo de WhatsApp Agora</a>
+                    <p>A tibieza não é uma opção. Se você sente o chamado para ser uma sentinela da fé, seu lugar é aqui.</p>
+                    <form class="enlist-form" action="obrigado.html">
+                        <input type="email" placeholder="Digite seu melhor e-mail para se alistar" required>
+                        <button type="submit">Avançar</button>
+                    </form>
                 </div>
             </div>
         </section>

@@ -17,19 +17,18 @@
                 <img src="image.png" alt="Logo Grupo Batalha no Céu" class="nav-logo">
                 General Gustavo
             </a>
-            <div class="nav-links">
-                <a href="#missao">A Missão</a>
+            <div class="nav-links" id="nav-links-menu"> <a href="#missao">A Missão</a>
                 <a href="#exercito">O Exército</a>
                 <a href="#junte-se">Alistar-se</a>
                 <a href="#contato">Contato</a>
             </div>
-        </div>
+            <button class="hamburger" id="hamburger-menu">&#9776;</button> </div>
     </nav>
 
     <header id="hero">
         <div class="hero-content">
-            <h1>Exército de São Miguel</h1>
-            <p>A vanguarda do combate espiritual: Grupo Batalha no Céu</p>
+            <h1>QUEM COMO DEUS?</h1>
+            <p>UMA MILÍCIA DE ORAÇÃO A SERVIÇO DA SANTA IGREJA</p>
         </div>
     </header>
 
@@ -41,8 +40,8 @@
                         <img src="sua-foto.jpg" alt="Foto do General Gustavo">
                     </div>
                     <div class="text-content">
-                        <h2>A Missão do General</h2>
-                        <p>Minha jornada no Exército de São Miguel é um chamado divino. Como General e administrador do <strong>Pelotão 7.9</strong>, lidero o "Grupo Batalha no Céu" e oriento outros generais nesta guerra invisível, mas real. Nossa missão é forjar soldados para Cristo através da oração, disciplina e do combate espiritual diário.</p>
+                        <h2>UMA VIDA A SERVIÇO DO COMBATE</h2>
+                        <p>A liderança do <strong>Grupo Batalha no Céu</strong> não é um título, mas uma consagração. Como General e administrador do <strong>Pelotão 7.9</strong>, minha missão é, pela graça de Deus, formar intercessores e combatentes espirituais. Orientamos nossos soldados — e outros generais em formação — no uso das armas da fé: o jejum, a oração e o estudo da sã doutrina, para a defesa das famílias e da Santa Igreja.</p>
                     </div>
                 </div>
             </div>
@@ -50,16 +49,16 @@
 
         <section id="exercito" class="animated-section">
             <div class="container card">
-                <h2>O Exército de São Miguel</h2>
-                <p>Somos uma grande família de oração inspirada pelo Instituto Hesed. Não lutamos com espadas, mas com a fé. Não marchamos em campos de batalha, mas nos colocamos em adoração. Sob o comando do Arcanjo São Miguel, enfrentamos as batalhas da vida com a certeza da vitória em Cristo.</p>
-                <p class="lema">"Quem como Deus? Ninguém!"</p>
+                <h2>O QUE É O EXÉRCITO DE SÃO MIGUEL?</h2>
+                <p>O Exército de São Miguel é um apostolado do Instituto Hesed. Uma milícia de almas que, em todo o mundo, se levanta para combater o mal através da adoração e da intercessão. Nossa principal arma é a <strong>Quaresma de São Miguel</strong>, um período de 40 dias de intensa oração e penitência. Não somos uma força terrena, mas uma legião que, de joelhos, luta as batalhas de Deus.</p>
+                <p class="lema">"São Miguel Arcanjo, defendei-nos no combate!"</p>
             </div>
         </section>
 
         <section id="junte-se" class="animated-section">
             <div class="container card">
-                <h2>Junte-se ao Grupo Batalha no Céu</h2>
-                <p>Você também é chamado a ser um soldado neste exército de fé. Aliste-se para receber formação espiritual e a força de uma comunidade que reza unida.</p>
+                <h2>O COMBATE O CHAMA. ALISTE-SE.</h2>
+                <p>A batalha pela salvação das almas é real e acontece agora. Se você sente em seu coração o chamado para deixar a tibieza e empunhar as armas da fé, seu lugar é aqui. Preencha os campos abaixo para iniciar seu alistamento no Grupo Batalha no Céu.</p>
                 <form action="obrigado.html">
                     <input type="text" name="nome" placeholder="Seu Nome Completo" required>
                     <input type="email" name="email" placeholder="Seu Melhor E-mail" required>
@@ -75,6 +74,15 @@
             <p>&copy; 2025 Grupo Batalha no Céu - Todos os Direitos Reservados.</p>
         </div>
     </footer>
+    
+    <script>
+        // Adicionei IDs únicos para garantir que não haja conflitos futuros
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links-menu');
 
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

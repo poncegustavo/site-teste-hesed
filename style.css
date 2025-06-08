@@ -1,55 +1,50 @@
-/* --- 1. CONFIGURAÇÃO GLOBAL E VARIÁVEIS (Princípio da Repetição) --- */
+/* --- CONFIGURAÇÃO GLOBAL E VARIÁVEIS --- */
 :root {
-    --color-gold: #FDB813;
-    --dark-bg: #111827;
-    --card-bg: #1F2937;
-    --light-text: #F3F4F6;
-    --gray-text: #9CA3AF;
-    --border-color: rgba(253, 184, 19, 0.2);
+    --color-primary: #0D2D5B; /* Azul Marinho Profundo */
+    --color-accent: #FDB813;  /* Dourado da sua logo */
+    --color-light: #FFFFFF;
+    --color-off-white: #F8F9FA;
+    --color-dark-text: #343A40;
+    --color-light-text: #FFFFFF;
 
-    --font-heading: 'Lora', serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Roboto', sans-serif;
+
+    --transition-speed: 0.3s;
 }
 
+/* --- RESET E ESTILOS GLOBAIS --- */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: var(--font-body);
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-    line-height: 1.7;
+    font-weight: 300;
+    color: var(--color-dark-text);
+    background-color: var(--color-light);
+    line-height: 1.6;
 }
 
 .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
-/* --- 2. HIERARQUIA TIPOGRÁFICA (Princípio da Hierarquia) --- */
-h1 { font-family: var(--font-heading); font-size: 3.5rem; line-height: 1.1; margin-bottom: 0.5rem; }
-h2 { font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-gold); margin-bottom: 2rem; }
-p { font-size: 1rem; color: var(--gray-text); margin-bottom: 1rem; }
-p:last-child { margin-bottom: 0; }
-
-/* --- 3. NAVEGAÇÃO (Consistência e Responsividade) --- */
+/* --- NAVEGAÇÃO --- */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1rem 0;
-    background: rgba(17, 24, 39, 0.75);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+    transition: all var(--transition-speed) ease;
 }
 
 .nav-container {
@@ -63,177 +58,220 @@ p:last-child { margin-bottom: 0; }
     align-items: center;
     gap: 0.75rem;
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--light-text);
+    color: var(--color-primary);
     text-decoration: none;
-    font-weight: 700;
+    font-size: 1.25rem;
 }
 
-.nav-logo { height: 40px; }
+.nav-logo { height: 45px; }
 
 .nav-links a {
-    color: var(--light-text);
+    color: var(--color-primary);
     text-decoration: none;
     margin-left: 2rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 0.5rem;
 }
 
-.nav-links a:hover { color: var(--color-gold); }
-
-.hamburger {
-    display: none;
-    font-size: 2rem;
-    color: var(--light-text);
-    background: none;
-    border: none;
-    cursor: pointer;
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-speed) ease;
 }
 
-/* --- 4. SEÇÕES PRINCIPAIS (Layout e Espaçamento) --- */
-#hero {
-    height: 100vh;
+.nav-links a:hover::after { width: 100%; }
+
+.nav-button {
+    background-color: var(--color-primary);
+    color: var(--color-light-text);
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 5px;
+    transition: all var(--transition-speed) ease;
+}
+
+.nav-button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-dark-text);
+}
+.nav-button::after { display: none; } /* Remove linha de hover do botão */
+
+.hamburger { display: none; } /* Escondido em desktop */
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
-    position: relative;
-    padding: 0 1rem;
-    background: url('https://images.unsplash.com/photo-1597321526495-ac9f71517d47?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    color: var(--color-light-text);
+    background: linear-gradient(rgba(13, 45, 91, 0.7), rgba(13, 45, 91, 0.7)), url('https://images.unsplash.com/photo-1597321526495-ac9f71517d47?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.85));
-}
-
-.hero-content { position: relative; z-index: 2; }
-.hero-content p { font-size: 1.25rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-
-main { padding-top: 4rem; padding-bottom: 4rem; }
-
-.content-section { padding: 4rem 0; }
-.content-section.bg-darker { background-color: var(--dark-bg); }
-
-/* --- 5. CARDS E CONTEÚDO (Princípio da Proximidade e Padrão) --- */
-.card {
-    background-color: var(--card-bg);
-    padding: 3rem;
-    border-radius: 15px;
-    border: 1px solid var(--border-color);
-    text-align: center;
-}
-.card .flex-container {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    text-align: left;
-}
-.card .text-content { flex: 2; }
-.card .image-content { flex: 1; }
-.card .image-content img {
-    width: 100%;
-    border-radius: 10px;
-    border: 3px solid var(--color-gold);
-}
-.card .lema {
+.hero-title {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--color-gold);
-    margin-top: 2rem;
+    font-size: 5rem;
     font-weight: 700;
 }
 
-/* --- 6. ELEMENTOS INTERATIVOS (Formulário e Botão) --- */
-form {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
-
-form input {
-    width: 100%;
-    max-width: 500px;
-    padding: 1rem;
-    background: #2b3a4e;
-    border: 1px solid #4a5a6a;
-    border-radius: 8px;
-    color: var(--light-text);
-    font-size: 1rem;
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 1rem 0 2rem 0;
 }
 
 .cta-button {
-    background: var(--color-gold);
-    color: var(--dark-bg);
+    background-color: var(--color-accent);
+    color: var(--color-dark-text);
     padding: 1rem 2.5rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
+    border-radius: 50px;
     text-decoration: none;
-    display: inline-block;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 700;
+    transition: all var(--transition-speed) ease;
 }
-
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* --- 7. RODAPÉ E PÁGINA DE AGRADECIMENTO --- */
-.footer {
-    background: var(--card-bg);
-    padding: 2rem 0;
-    text-align: center;
-    color: var(--gray-text);
-    font-size: 0.9rem;
+/* --- SEÇÃO DE DESTAQUES (FEATURED) --- */
+.featured-section {
+    padding: 6rem 0;
+    background-color: var(--color-off-white);
 }
-.footer p { margin: 0.25rem 0; }
 
-.thank-you-page {
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.featured-card {
+    background-color: var(--color-light);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--color-dark-text);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all var(--transition-speed) ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    flex-direction: column;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.large-card {
+    grid-column: 1 / -1; /* Ocupa a largura toda */
+    flex-direction: row;
+}
+
+.card-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.large-card .card-image {
+    height: auto;
+    width: 50%;
+}
+
+.card-content {
     padding: 2rem;
 }
-.thank-you-page h1 { font-size: 2.5rem; color: var(--color-gold); }
 
-/* --- 8. AJUSTES PARA DISPOSITIVOS MÓVEIS E LAPTOPS (Responsividade) --- */
-@media (max-width: 768px) {
-    /* Tipografia para telas menores */
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-    .hero-content p { font-size: 1.1rem; }
+.card-content h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+}
 
-    /* Menu Hambúrguer */
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 69px; /* altura da navbar */
-        left: 0;
-        width: 100%;
-        background: var(--card-bg);
-        flex-direction: column;
-        padding: 1rem 0;
-        border-bottom: 1px solid var(--border-color);
-    }
+.large-card .card-content {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- SEÇÃO DE CITAÇÃO --- */
+.quote-section {
+    padding: 6rem 0;
+    text-align: center;
+    background-color: var(--color-primary);
+    color: var(--color-light-text);
+}
+
+.quote-section blockquote {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    line-height: 1.4;
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: var(--color-off-white);
+    color: var(--color-dark-text);
+    padding-top: 4rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.footer h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+.footer-links ul li a {
+    text-decoration: none;
+    color: var(--color-dark-text);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #e9ecef;
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media(max-width: 768px) {
+    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--color-primary); }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--color-light); flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
     .nav-links.active { display: flex; }
-    .nav-links a { margin: 1rem 0; text-align: center; }
-    .hamburger { display: block; }
-
-    /* Layouts que precisam mudar */
-    .card { padding: 2rem; }
-    .card .flex-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .card .text-content { order: 2; } /* Texto aparece depois da imagem */
-    .card .image-content { order: 1; margin-bottom: 2rem; }
+    .nav-links a { margin: 1rem 0; }
+    .hero { height: 70vh; }
+    .hero-title { font-size: 3rem; }
+    .featured-grid, .footer-container { grid-template-columns: 1fr; }
+    .large-card { flex-direction: column; }
+    .large-card .card-image, .large-card .card-content { width: 100%; }
+    .quote-section blockquote { font-size: 1.75rem; }
 }

@@ -7,33 +7,39 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="nav-brand">
-                <img src="image.png" alt="Logo Grupo Batalha no Céu" class="nav-logo">
-                General Gustavo
+                <img src="image.png" alt="Logo" class="nav-logo">
+                <span>General Gustavo</span>
             </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">O Exército</a>
+                <a href="#">Formação</a>
+                <a href="#">Links</a>
+            </div>
+            <button class="hamburger" id="hamburger">&#9776;</button>
         </div>
     </nav>
 
-    <main class="thank-you-page">
-        <div class="container card">
-            <h2>Inscrição Recebida!</h2>
-            <h1>Seja bem-vindo ao Grupo Batalha no Céu!</h1>
-            <p>Sua vaga no pelotão está reservada. O último passo é entrar em nosso grupo oficial no WhatsApp para receber as direções, orações e avisos.</p>
-            <a href="https://chat.whatsapp.com/DIDJcbVlyW4AK61vnehBNQ" target="_blank" class="cta-button">
-                Entrar no Grupo do WhatsApp
-            </a>
+    <main class="thank-you-page-main">
+        <div class="thank-you-content">
+            <img src="image.png" alt="Logo" class="thank-you-logo">
+            <h1 class="thank-you-title">Inscrição Realizada com Sucesso!</h1>
+            <p class="thank-you-subtitle">Seja bem-vindo ao <strong>Grupo Batalha no Céu</strong>. Sua vaga em nosso pelotão está confirmada. O passo final para se juntar à linha de frente é entrar em nosso Quartel General no WhatsApp.</p>
+            <a href="https://chat.whatsapp.com/DIDJcbVlyW4AK61vnehBNQ" target="_blank" class="cta-button">Entrar no Grupo de WhatsApp</a>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 General Gustavo - Todos os Direitos Reservados.</p>
-        </div>
+    
+    <footer class="footer-sticky">
+        <p>&copy; 2025 General Gustavo. Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>

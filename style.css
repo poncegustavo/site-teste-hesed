@@ -5,26 +5,19 @@
     --color-primary: #FFFFFF;
     --color-secondary: #A0A0A0;
     --color-accent: #3A7CA5; /* Azul elétrico */
+    --color-border: rgba(58, 124, 165, 0.2);
 
     --font-heading: 'Lora', serif;
     --font-body: 'Montserrat', sans-serif;
     
     --container-width: 1100px;
     --border-radius: 12px;
-    --transition-speed: 0.5s;
+    --transition-speed: 0.3s;
 }
 
 /* --- 2. RESET E ESTILOS GLOBAIS --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
     font-family: var(--font-body);
     background-color: var(--color-background);
@@ -33,195 +26,96 @@ body {
     font-size: 16px;
     overflow-x: hidden;
 }
+.container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
+img { max-width: 100%; height: auto; display: block; }
 
-.container {
-    width: 90%;
-    max-width: var(--container-width);
-    margin: 0 auto;
+/* --- 3. NAVEGAÇÃO PROFISSIONAL --- */
+.navbar {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #2a2a2a;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
+.nav-logo { height: 45px; }
+.nav-brand-text { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); }
+.main-nav a { font-weight: 700; color: var(--color-secondary); text-decoration: none; margin-left: 2rem; transition: color var(--transition-speed); }
+.main-nav a:hover, .main-nav a.active { color: var(--color-primary); }
+.nav-button { background-color: var(--color-accent); color: var(--color-primary); padding: 0.6rem 1.2rem; border-radius: var(--border-radius); font-weight: 700; }
+.nav-button:hover { filter: brightness(1.2); }
+.hamburger { display: none; }
 
-/* --- 3. SEÇÃO HERO (TELA CHEIA) --- */
+/* --- 4. HERO (PÁGINA PRINCIPAL) --- */
 .hero {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 1rem;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 1rem;
     background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 1)), url('https://images.unsplash.com/photo-1551698618-1dfea45c2567?q=80&w=1887&auto=format&fit=crop') no-repeat center center/cover;
 }
+.hero-logo { width: 120px; height: 120px; margin-bottom: 2rem; }
+.hero h1 { font-family: var(--font-heading); font-size: 4rem; font-weight: 700; color: var(--color-primary); letter-spacing: 1px; }
+.hero p { font-size: 1.2rem; color: var(--color-secondary); margin-top: 0.5rem; }
 
-.hero-logo {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 2rem;
-}
+/* --- 5. SEÇÕES DE CONTEÚDO --- */
+.content-section { padding: 6rem 0; }
+.content-section.darker { background-color: var(--color-surface); }
+.section-title { font-family: var(--font-heading); font-size: 2.5rem; margin-bottom: 2rem; position: relative; padding-bottom: 1rem; }
+.section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background-color: var(--color-accent); }
+.text-center .section-title::after { left: 50%; transform: translateX(-50%); }
+.section-subtitle { font-size: 1.2rem; color: var(--color-secondary); font-style: italic; max-width: 700px; margin: -1rem 0 2rem 0; }
+.text-center .section-subtitle { margin-left: auto; margin-right: auto; }
+.section-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
+.section-image img { border-radius: var(--border-radius); }
 
-.hero h1 {
-    font-family: var(--font-heading);
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--color-primary);
-    letter-spacing: 1px;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    color: var(--color-secondary);
-    margin-top: 0.5rem;
-}
-
-.scroll-down-link {
-    color: var(--color-secondary);
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 4rem;
-    position: relative;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-20px);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
-}
-
-/* --- 4. SEÇÕES DE CONTEÚDO --- */
-.content-section {
-    padding: 6rem 0;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* Efeito de fade-in ao rolar (precisa de um pequeno JS se quiser mais controle, mas o CSS puro já ajuda) */
-/* Para um efeito mais robusto, um JS com IntersectionObserver seria o ideal, mas vamos começar com o CSS */
-.content-section:target, .content-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.content-section.darker {
+/* --- 6. PÁGINAS INTERNAS --- */
+.page-header {
+    margin-top: 77px; /* Altura da Navbar */
+    padding: 5rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
     background-color: var(--color-surface);
 }
+.page-header h1 { font-size: 3rem; }
+.page-header p { font-size: 1.2rem; color: var(--color-secondary); }
+.article-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.info-card { background-color: var(--color-surface); padding: 2rem; border-radius: var(--border-radius); border: 1px solid var(--color-border); }
+.info-card h3 { color: var(--color-accent); font-size: 1.5rem; margin-bottom: 1rem; }
+.logo-display { text-align: center; padding: 2rem; }
+.logo-display img { max-height: 80px; filter: brightness(0.8) grayscale(0.5); }
 
-.section-title {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-bottom: 1rem;
-}
+/* --- 7. ALISTAMENTO E FORMULÁRIOS --- */
+.cta-card { background: var(--color-surface); border: 1px solid var(--color-border); padding: 4rem; border-radius: var(--border-radius); text-align: center; }
+.enlist-form { margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; }
+.enlist-form input { background-color: #2a2a2a; border: 1px solid #444; color: var(--color-primary); padding: 1rem 1.5rem; border-radius: var(--border-radius); font-size: 1rem; width: 100%; max-width: 400px; }
+.enlist-form button { background-color: var(--color-accent); color: var(--color-primary); border: none; padding: 1rem 2.5rem; border-radius: var(--border-radius); font-weight: bold; font-size: 1rem; cursor: pointer; transition: background-color var(--transition-speed); }
+.enlist-form button:hover { filter: brightness(1.2); }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background-color: var(--color-accent);
-}
+/* --- 8. OBRIGADO PAGE --- */
+.thank-you-page { display: flex; align-items: center; justify-content: center; text-align: center; min-height: 100vh; }
+.thank-you-card { max-width: 600px; }
+.thank-you-card h1 { font-size: 3rem; }
 
-.text-center .section-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
+/* --- 9. RODAPÉ --- */
+.footer { padding: 2rem 0; text-align: center; color: var(--color-secondary); font-size: 0.9rem; border-top: 1px solid #2a2a2a; }
 
-.section-subtitle {
-    font-size: 1.2rem;
-    color: var(--color-secondary);
-    font-style: italic;
-    max-width: 700px;
-    margin: -1rem auto 2rem auto;
-}
-
-.section-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 4rem;
-}
-
-.section-image img {
-    border-radius: var(--border-radius);
-    width: 100%;
-}
-
-/* --- 5. CARD DE CHAMADA PARA AÇÃO (CTA) --- */
-.cta-card {
-    background: var(--color-surface);
-    border: 1px solid #2a2a2a;
-    padding: 4rem;
-    border-radius: var(--border-radius);
-    text-align: center;
-}
-.cta-card .section-title::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.enlist-form {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.enlist-form input {
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    color: var(--color-primary);
-    padding: 1rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    width: 100%;
-    max-width: 400px;
-}
-
-.enlist-form button {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    border: none;
-    padding: 1rem 2.5rem;
-    border-radius: var(--border-radius);
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color var(--transition-speed);
-}
-
-.enlist-form button:hover {
-    background-color: #5aa9d1;
-}
-
-/* --- 6. RODAPÉ --- */
-.footer {
-    padding: 2rem 0;
-    text-align: center;
-    color: var(--color-secondary);
-    font-size: 0.9rem;
-    border-top: 1px solid #2a2a2a;
-}
-
-/* --- 7. RESPONSIVIDADE --- */
+/* --- 10. RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     body { font-size: 14px; }
+    .main-nav { display: none; }
+    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; color: var(--color-primary); cursor: pointer; }
+    /* Adicionar lógica de menu ativo no JS se necessário */
     .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1rem; }
-    .hero-logo { width: 80px; height: 80px; }
-    
+    .page-header h1 { font-size: 2.2rem; }
     .section-title { font-size: 2rem; }
-    .section-grid { grid-template-columns: 1fr; }
+    .section-grid, .article-grid { grid-template-columns: 1fr; }
+    .section-image.reverse { grid-row: 1; } /* Inverte ordem no mobile */
     .section-image { margin-bottom: 2rem; }
-    .content-section { padding: 4rem 0; }
-    
     .enlist-form { flex-direction: column; align-items: center; }
 }

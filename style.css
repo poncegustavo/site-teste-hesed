@@ -1,167 +1,114 @@
-/* --- 1. CONFIGURAÇÃO GLOBAL E FONTES (LORA + MONTSERRAT) --- */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700&display=swap');
+/* ... (Todo o seu CSS atual. Cole isso no final) ... */
 
-:root {
-    --color-background: #121212;
-    --color-surface: #1E1E1E;
-    --color-primary: #FFFFFF;
-    --color-secondary: #A0A0A0;
-    --color-accent: #3A7CA5;
-    --color-border: rgba(58, 124, 165, 0.25);
-    --font-heading: 'Lora', serif;
-    --font-body: 'Montserrat', sans-serif;
-    --container-width: 1100px;
-    --border-radius: 12px;
-    --transition-speed: 0.3s;
-}
-
-/* --- 2. RESET E ESTILOS GLOBAIS --- */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-    font-family: var(--font-body);
+/* --- ESTILOS PARA PÁGINAS DE CADASTRO E LOGIN --- */
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem;
     background-color: var(--color-background);
-    color: var(--color-primary);
-    line-height: 1.8;
-    font-size: 16px;
-    overflow-x: hidden;
 }
-.container { width: 90%; max-width: var(--container-width); margin: 0 auto; }
-img { max-width: 100%; height: auto; display: block; }
 
-/* --- 3. BOTÕES E LINKS --- */
-.cta-button {
-    display: inline-block;
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
+.auth-card {
+    background-color: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.auth-card .nav-logo {
+    height: 60px;
+    margin: 0 auto 1.5rem auto;
+}
+
+.auth-card h1 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-bottom: 2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all var(--transition-speed) ease;
-    border: 2px solid transparent;
 }
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(58, 124, 165, 0.2);
-}
-.secondary-button {
-    background-color: transparent;
-    border: 2px solid var(--color-border);
-}
-.secondary-button:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-}
-a { color: var(--color-accent); text-decoration: none; }
 
-/* --- 4. NAVEGAÇÃO --- */
-.navbar {
-    background: rgba(18, 18, 18, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #2a2a2a;
-    padding: 1rem 0;
-    position: fixed;
-    top: 0;
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+
+.form-group input {
     width: 100%;
-    z-index: 1000;
-}
-.nav-container { display: flex; justify-content: space-between; align-items: center; }
-.nav-brand { display: flex; align-items: center; gap: 1rem; text-decoration: none; }
-.nav-logo { height: 45px; }
-.nav-brand-text { font-family: var(--font-heading); font-size: 1.5rem; color: var(--color-primary); }
-.main-nav a { font-weight: 700; color: var(--color-secondary); text-decoration: none; margin-left: 2rem; transition: color var(--transition-speed); }
-.main-nav a:hover, .main-nav a.active { color: var(--color-primary); }
-.nav-button { background-color: var(--color-accent); color: var(--color-primary); padding: 0.6rem 1.2rem; border-radius: var(--border-radius); font-weight: 700; }
-.nav-button:hover { filter: brightness(1.2); text-decoration: none; }
-.hamburger { display: none; }
-
-/* --- 5. HERO (PÁGINA PRINCIPAL) --- */
-.hero {
-    height: 100vh;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    text-align: center; padding: 1rem;
-    background: linear-gradient(rgba(18, 18, 18, 0.7), var(--color-background)), url('images/background-hero.jpg') no-repeat center center/cover;
-}
-.hero h1 { font-family: var(--font-heading); font-size: 4.5rem; color: var(--color-primary); line-height: 1.1; max-width: 800px; margin-bottom: 1.5rem; }
-.hero p { font-size: 1.25rem; color: var(--color-secondary); max-width: 600px; margin-bottom: 2.5rem; }
-
-/* --- 6. SEÇÕES DE CONTEÚDO (PÁGINA PRINCIPAL) --- */
-.content-section { padding: 6rem 0; }
-.content-section.darker { background-color: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
-.section-title { font-family: var(--font-heading); font-size: 3rem; text-align: center; margin-bottom: 1rem; }
-.section-subtitle { font-size: 1.1rem; color: var(--color-secondary); text-align: center; max-width: 700px; margin: 0 auto 4rem auto; }
-.section-grid { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 5rem; }
-.section-grid.reverse { grid-template-columns: 1.2fr 1fr; }
-.section-grid.reverse .section-text { order: 2; }
-.section-image img { border-radius: var(--border-radius); }
-.section-text h3 { font-family: var(--font-heading); font-size: 2rem; color: var(--color-accent); margin-bottom: 1.5rem; }
-#cta-final .cta-button { margin-top: 2rem; font-size: 1.2rem; padding: 1.2rem 3rem; }
-.cta-card { background: var(--color-surface); border: 1px solid var(--color-border); padding: 4rem; border-radius: var(--border-radius); text-align: center; }
-
-/* --- 7. PÁGINAS INTERNAS (SOBRE, EXÉRCITO) --- */
-.page-header {
-    margin-top: 77px; /* Altura da Navbar */
-    padding: 5rem 0;
-    text-align: center;
-    border-bottom: 1px solid var(--color-border);
-    background-color: var(--color-surface);
-}
-.page-header h1 { font-size: 3rem; }
-.page-header p { font-size: 1.2rem; color: var(--color-secondary); }
-
-.about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: flex-start; }
-.about-image img { border-radius: var(--border-radius); position: sticky; top: 120px; }
-.about-text h3 { font-family: var(--font-heading); font-size: 1.75rem; color: var(--color-accent); margin-top: 2.5rem; margin-bottom: 1rem; }
-.about-text p { font-size: 1.1rem; color: var(--color-secondary); margin-bottom: 1rem; }
-.about-text p:first-of-type { font-size: 1.2rem; color: var(--color-primary); }
-
-/* --- 8. ESTILOS PARA PÁGINA DE FORMAÇÃO --- */
-.article-grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-.article-card {
-    background-color: var(--color-surface);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    text-decoration: none;
-    color: var(--color-primary);
-    display: flex; flex-direction: column;
+    padding: 0.9rem 1rem;
+    background-color: var(--color-background);
     border: 1px solid var(--color-border);
-    transition: all var(--transition-speed) ease-in-out;
+    color: var(--color-primary);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
-.article-card:hover { transform: translateY(-5px); border-color: var(--color-accent); }
-.article-card.featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
-.article-card .article-image { height: 200px; background-size: cover; background-position: center; }
-.article-card.featured .article-image { height: 100%; min-height: 300px; }
-.article-card .article-content { padding: 1.5rem; }
-.article-category { font-size: 0.8rem; font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
-.article-content h3 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 0.5rem; }
-.article-content p { font-size: 0.9rem; color: var(--color-secondary); line-height: 1.6; }
 
-/* --- 9. ESTILOS PARA PÁGINA DE ARTIGO INDIVIDUAL --- */
-.article-header { background-size: cover; background-position: center; background-attachment: scroll; }
-.article-category-header { font-size: 1rem; font-weight: 700; color: var(--color-accent); text-transform: uppercase; letter-spacing: 2px; }
-.article-header h1 { max-width: 800px; margin: 1rem auto 0 auto; }
-.article-body { max-width: 750px; font-size: 1.1rem; line-height: 1.9; margin: 0 auto; }
-.article-body h3 { font-family: var(--font-heading); font-size: 1.75rem; color: var(--color-accent); margin-top: 3rem; margin-bottom: 1.5rem; }
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px rgba(58, 124, 165, 0.3);
+}
 
-/* --- 10. RODAPÉ --- */
-.footer { padding: 2rem 0; text-align: center; color: var(--color-secondary); font-size: 0.9rem; border-top: 1px solid #2a2a2a; }
+.auth-form .cta-button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
 
-/* --- 11. RESPONSIVIDADE --- */
-@media (max-width: 768px) {
-    body { font-size: 15px; }
-    .main-nav { display: none; }
-    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; color: var(--color-primary); cursor: pointer; }
-    h1 { font-size: 2.8rem; }
-    .page-header h1 { font-size: 2.5rem; }
-    .section-title { font-size: 2.2rem; }
-    .section-grid, .section-grid.reverse, .about-grid { grid-template-columns: 1fr; }
-    .section-grid.reverse .section-text { order: 0; }
-    .section-image { margin-bottom: 2rem; }
-    .about-image img { position: static; }
-    .article-grid-container, .article-card.featured { grid-template-columns: 1fr; }
+.auth-link {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+.auth-link a {
+    font-weight: 700;
+}
+
+/* Estilo para a página de alistamento */
+.gateway-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background-color: var(--color-surface);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+}
+.gateway-option {
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+.gateway-option:hover {
+    border-color: var(--color-accent);
+    background-color: rgba(58, 124, 165, 0.1);
+}
+.gateway-option h3 {
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+}
+
+@media(max-width: 768px) {
+    .gateway-card {
+        grid-template-columns: 1fr;
+    }
 }

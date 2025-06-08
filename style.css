@@ -73,6 +73,17 @@ nav {
     color: var(--gold-accent);
 }
 
+/* Esconde o botão hambúrguer em telas grandes */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    color: var(--light-text);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
 /* HERO SECTION - CABEÇALHO PRINCIPAL */
 #hero {
     background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1597321526495-ac9f71517d47?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
@@ -209,4 +220,73 @@ footer {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+}
+
+/* =================================================================== */
+/* ==== SEÇÃO DE RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS ==== */
+/* =================================================================== */
+
+@media (max-width: 768px) {
+
+    /* Ajusta fontes para melhor leitura em telas pequenas */
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .card h2 {
+        font-size: 2rem;
+    }
+
+    /* Esconde os links de navegação e mostra o botão hambúrguer */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 69px; /* Altura da navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        padding-bottom: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra o menu quando ativado pelo Javascript */
+    }
+
+    .nav-links a {
+        margin: 1rem 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block; /* Mostra o ícone do menu */
+    }
+
+    /* Reorganiza a seção da missão */
+    #missao .flex-container {
+        flex-direction: column; /* Coloca imagem em cima do texto */
+        text-align: center;
+    }
+    
+    #missao .text-content {
+        order: 2; /* Texto aparece depois da imagem */
+    }
+
+    #missao .image-content {
+        order: 1; /* Imagem aparece antes do texto */
+        margin-bottom: 2rem;
+    }
+
+    /* Aumenta a largura do formulário para facilitar o toque */
+    form input {
+        width: 90%;
+    }
+
+    /* Ajusta o espaçamento interno dos cards */
+    .card {
+        padding: 2rem 1.5rem;
+    }
 }

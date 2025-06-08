@@ -7,105 +7,58 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar">
+    <nav>
         <div class="container nav-container">
-            <a href="index.html" class="nav-brand">
-                <img src="image.png" alt="Logo" class="nav-logo">
-                <span>General Gustavo</span>
+            <a href="#hero" class="nav-brand">
+                <img src="image.png" alt="Logo Grupo Batalha no Céu" class="nav-logo">
+                General Gustavo
             </a>
-            <div class="nav-links" id="nav-links">
-                <a href="index.html" class="active-link">Início</a>
-                <a href="sobre-general.html">Sobre</a>
-                <a href="#">O Exército</a>
-                <a href="#">Formação</a>
-                <a href="#">Links</a>
-                <a href="#" class="nav-button">Aliste-se</a>
+            <div class="nav-links">
+                <a href="#missao">A Missão</a>
+                <a href="#exercito">O Exército</a>
+                <a href="#junte-se">Alistar-se</a>
+                <a href="#contato">Contato</a>
             </div>
-            <button class="hamburger" id="hamburger">&#9776;</button>
         </div>
     </nav>
 
-    <header class="hero">
+    <header id="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Grupo Batalha no Céu</h1>
-            <p class="hero-subtitle">UMA VANGUARDA DO EXÉRCITO DE SÃO MIGUEL SOB O COMANDO DO GENERAL GUSTAVO</p>
-            <a href="sobre-general.html" class="cta-button">Conheça a Missão</a>
+            <h1>Exército de São Miguel</h1>
+            <p>A vanguarda do combate espiritual: Grupo Batalha no Céu</p>
         </div>
     </header>
 
     <main>
-        <section class="featured-section">
-            <div class="container">
-                <div class="featured-grid">
-                    <a href="sobre-general.html" class="featured-card">
-                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1518065703273-559a3a93354b?q=80&w=2070&auto=format&fit=crop');"></div>
-                        <div class="card-content">
-                            <h3>Nossa História</h3>
-                            <p>Conheça o chamado que deu origem ao nosso pelotão e à nossa luta diária.</p>
-                        </div>
-                    </a>
-                    <a href="#" class="featured-card">
-                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1628156994503-b6fb898ainge?q=80&w=1887&auto=format&fit=crop');"></div>
-                        <div class="card-content">
-                            <h3>Formação de Combate</h3>
-                            <p>Acesse artigos e orações para fortalecer seu espírito para a batalha espiritual.</p>
-                        </div>
-                    </a>
-                    <a href="#" class="featured-card large-card">
-                        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1506947219939-53738c2620b4?q=80&w=1887&auto=format&fit=crop');"></div>
-                        <div class="card-content">
-                            <h3>Aliste-se Agora</h3>
-                            <p>Sinta o chamado para lutar o bom combate. Junte-se às nossas fileiras e seja um soldado da fé no Grupo Batalha no Céu.</p>
-                        </div>
-                    </a>
+        <section id="missao" class="animated-section">
+            <div class="container card">
+                <div class="flex-container">
+                    <div class="image-content">
+                        <img src="sua-foto.jpg" alt="Foto do General Gustavo">
+                    </div>
+                    <div class="text-content">
+                        <h2>A Missão do General</h2>
+                        <p>Minha jornada no Exército de São Miguel é um chamado divino. Como General e administrador do <strong>Pelotão 7.9</strong>, lidero o "Grupo Batalha no Céu" e oriento outros generais nesta guerra invisível, mas real. Nossa missão é forjar soldados para Cristo através da oração, disciplina e do combate espiritual diário.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <section class="quote-section">
-            <div class="container">
-                <blockquote>
-                    "São Miguel Arcanjo, defendei-nos no combate, sede o nosso refúgio contra as maldades e ciladas do demônio."
-                </blockquote>
+
+        <section id="exercito" class="animated-section">
+            <div class="container card">
+                <h2>O Exército de São Miguel</h2>
+                <p>Somos uma grande família de oração inspirada pelo Instituto Hesed. Não lutamos com espadas, mas com a fé. Não marchamos em campos de batalha, mas nos colocamos em adoração. Sob o comando do Arcanjo São Miguel, enfrentamos as batalhas da vida com a certeza da vitória em Cristo.</p>
+                <p class="lema">"Quem como Deus? Ninguém!"</p>
             </div>
         </section>
-    </main>
 
-    <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-about">
-                <h4>General Gustavo</h4>
-                <p>Líder do pelotão "Grupo Batalha no Céu", a serviço do Exército de São Miguel.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="sobre-general.html">Sobre</a></li>
-                    <li><a href="#">O Exército</a></li>
-                    <li><a href="#">Formação</a></li>
-                    <li><a href="#">Aliste-se</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h4>QUEM COMO DEUS?</h4>
-                <p>Ninguém.</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 General Gustavo. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
-</body>
-</html>
+        <section id="junte-se" class="animated-section">
+            <div class="container card">
+                <h2>Junte-se ao Grupo Batalha no Céu</h2>
+                <p>Você também é chamado a ser um soldado neste exército de fé. Aliste-se para receber formação espiritual e a força de uma comunidade que reza unida.</p>
+                <form action="obrigado.html">
+                    <input type="text" name="nome" placeholder="Seu Nome Completo" required>

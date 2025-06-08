@@ -1,50 +1,43 @@
-/* --- RAÍZES DO DESIGN: VARIÁVEIS E CONFIGURAÇÕES GLOBAIS --- */
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+/* VARIÁVEIS DE COR */
 :root {
-    --color-primary: #0D2D5B; /* Azul Marinho Profundo */
-    --color-accent: #FDB813;  /* Dourado da sua logo */
-    --color-light: #FFFFFF;
-    --color-off-white: #F8F9FA;
-    --color-dark-text: #343A40;
-    --color-light-text: #FFFFFF;
-
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Roboto', sans-serif;
-
-    --transition-speed: 0.3s;
+    --dark-bg: #111827;
+    --card-bg: #1F2937;
+    --gold-accent: #FBBF24;
+    --light-text: #F3F4F6;
+    --gray-text: #9CA3AF;
 }
 
-/* --- RESET E ESTILOS GLOBAIS --- */
-*, *::before, *::after {
-    box-sizing: border-box;
+/* ESTILO GERAL */
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
     margin: 0;
     padding: 0;
-}
-
-body {
-    font-family: var(--font-body);
-    font-weight: 300;
-    color: var(--color-dark-text);
-    background-color: var(--color-light);
-    line-height: 1.6;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
 }
 
 .container {
     width: 90%;
-    max-width: 1280px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: auto;
 }
 
-/* --- NAVEGAÇÃO --- */
-.navbar {
+/* NAVEGAÇÃO "GLASSMORPHISM" */
+nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #e9ecef;
     padding: 1rem 0;
-    transition: all var(--transition-speed) ease;
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
@@ -54,369 +47,166 @@ body {
 }
 
 .nav-brand {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--light-text);
+    text-decoration: none;
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    text-decoration: none;
-    font-size: 1.25rem;
 }
 
-.nav-logo { height: 45px; }
+.nav-logo {
+    height: 40px;
+}
 
 .nav-links a {
-    color: var(--color-primary);
+    color: var(--light-text);
     text-decoration: none;
     margin-left: 2rem;
-    font-weight: 400;
-    position: relative;
-    padding-bottom: 0.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--color-accent);
-    transition: width var(--transition-speed) ease;
+.nav-links a:hover {
+    color: var(--gold-accent);
 }
 
-.nav-links a:hover::after { width: 100%; }
-
-.nav-button {
-    background-color: var(--color-primary);
-    color: var(--color-light-text);
-    padding: 0.75rem 1.5rem !important;
-    border-radius: 5px;
-    transition: all var(--transition-speed) ease;
-}
-
-.nav-button:hover {
-    background-color: var(--color-accent);
-    color: var(--color-dark-text);
-}
-.nav-button::after { display: none; } /* Remove linha de hover do botão */
-
-.hamburger { display: none; } /* Escondido em desktop */
-
-/* --- HERO SECTION (PÁGINA INICIAL) --- */
-.hero {
-    height: 90vh;
+/* HERO SECTION - CABEÇALHO PRINCIPAL */
+#hero {
+    background: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1597321526495-ac9f71517d47?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
     text-align: center;
-    color: var(--color-light-text);
-    background: linear-gradient(rgba(13, 45, 91, 0.7), rgba(13, 45, 91, 0.7)), url('https://images.unsplash.com/photo-1597321526495-ac9f71517d47?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    color: #fff;
+    padding: 0 20px;
 }
 
-.hero-title {
-    font-family: var(--font-heading);
-    font-size: 5rem;
-    font-weight: 700;
-}
-
-.hero-subtitle {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 1rem 0 2rem 0;
-}
-
-.cta-button {
-    background-color: var(--color-accent);
-    color: var(--color-dark-text);
-    padding: 1rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: all var(--transition-speed) ease;
-}
-.cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* --- SEÇÃO DE DESTAQUES (PÁGINA INICIAL) --- */
-.featured-section {
-    padding: 6rem 0;
-    background-color: var(--color-off-white);
-}
-
-.featured-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-.featured-card {
-    background-color: var(--color-light);
-    border-radius: 10px;
-    overflow: hidden;
-    text-decoration: none;
-    color: var(--color-dark-text);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all var(--transition-speed) ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.featured-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-}
-
-.large-card {
-    grid-column: 1 / -1; /* Ocupa a largura toda */
-    flex-direction: row;
-}
-
-.card-image {
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-}
-
-.large-card .card-image {
-    height: auto;
-    width: 50%;
-}
-
-.card-content {
-    padding: 2rem;
-}
-
-.card-content h3 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    margin-bottom: 0.5rem;
-    font-size: 1.75rem;
-}
-
-.large-card .card-content {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* --- SEÇÃO DE CITAÇÃO (PÁGINA INICIAL) --- */
-.quote-section {
-    padding: 6rem 0;
-    text-align: center;
-    background-color: var(--color-primary);
-    color: var(--color-light-text);
-}
-
-.quote-section blockquote {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    line-height: 1.4;
-    max-width: 800px;
-    margin: 0 auto;
-    font-style: italic;
-}
-
-/* --- ESTILOS PARA PÁGINAS INTERNAS (SOBRE) --- */
-.page-header {
-    background: linear-gradient(rgba(13, 45, 91, 0.8), rgba(13, 45, 91, 0.8)), url('https://images.unsplash.com/photo-1518065703273-559a3a93354b?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding: 6rem 0;
-    text-align: center;
-    color: var(--color-light-text);
-    margin-top: 78px; /* Altura da navbar */
-}
-
-.page-title {
-    font-family: var(--font-heading);
+.hero-content h1 {
+    font-family: 'Lora', serif;
     font-size: 4rem;
-}
-
-.page-subtitle {
-    font-size: 1.1rem;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.content-section-page {
-    padding: 4rem 0;
-    background-color: var(--color-light);
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    gap: 3rem;
-}
-
-.main-content h2 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.main-content h3 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.75rem;
-    margin-top: 2rem;
+    text-shadow: 0 0 15px rgba(0,0,0,0.7);
     margin-bottom: 1rem;
-    border-left: 3px solid var(--color-accent);
-    padding-left: 1rem;
 }
 
-.role-subtitle {
-    font-weight: 700;
-    color: var(--color-dark-text);
+.hero-content p {
+    font-size: 1.5rem;
+    color: var(--gray-text);
+}
+
+/* ESTRUTURA DOS CARDS DE CONTEÚDO */
+main {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    color: var(--gold-accent);
+    margin-top: 0;
     margin-bottom: 2rem;
 }
 
-.sidebar .sidebar-widget {
-    background-color: var(--color-off-white);
-    padding: 2rem;
-    border-radius: 5px;
-    text-align: center;
-    border: 1px solid #e9ecef;
-}
-
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--color-accent);
-    margin-bottom: 1rem;
-}
-
-.sidebar-widget h4 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
+.card .lema {
+    font-family: 'Lora', serif;
     font-size: 1.5rem;
-}
-
-.active-link {
-    color: var(--color-accent) !important;
-}
-.active-link::after {
-    width: 100% !important;
-}
-
-.secondary-button {
-    background-color: var(--color-primary);
-    color: var(--color-light-text);
-    border-color: var(--color-primary);
+    color: var(--gold-accent);
     margin-top: 2rem;
-}
-.secondary-button:hover {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
-    color: var(--color-dark-text);
+    font-weight: 700;
 }
 
-/* --- ESTILOS PARA A PÁGINA DE OBRIGADO --- */
-.thank-you-page-main {
+/* SEÇÃO MISSÃO COM FOTO */
+#missao .flex-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    min-height: calc(100vh - 80px); /* Subtrai a altura aproximada do rodapé */
-    text-align: center;
-    padding: 2rem;
-    margin-top: 78px;
+    gap: 3rem;
+    text-align: left;
 }
 
-.thank-you-content {
-    max-width: 650px;
+#missao .image-content {
+    flex: 1;
 }
 
-.thank-you-logo {
-    height: 80px;
-    margin-bottom: 2rem;
+#missao .image-content img {
+    width: 100%;
+    border-radius: 10px;
+    border: 3px solid var(--gold-accent);
 }
 
-.thank-you-title {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 3rem;
+#missao .text-content {
+    flex: 2;
 }
 
-.thank-you-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-dark-text);
-    margin: 1rem 0 2.5rem 0;
-}
-
-/* --- RODAPÉ --- */
-.footer {
-    background-color: var(--color-off-white);
-    color: var(--color-dark-text);
-    padding-top: 4rem;
-    border-top: 1px solid #e9ecef;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 2rem;
-    padding-bottom: 4rem;
-}
-
-.footer h4 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-.footer-links ul li a {
-    text-decoration: none;
-    color: var(--color-dark-text);
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 1.5rem 0;
-    border-top: 1px solid #e9ecef;
-    font-size: 0.9rem;
-}
-.footer-sticky {
-    background-color: var(--color-off-white);
-    padding: 1.5rem 0;
-    text-align: center;
-    border-top: 1px solid #e9ecef;
-    font-size: 0.9rem;
+/* FORMULÁRIO */
+form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
     width: 100%;
 }
 
+form input {
+    width: 60%;
+    padding: 1rem;
+    background: #2b3a4e;
+    border: 1px solid #4a5a6a;
+    border-radius: 8px;
+    color: var(--light-text);
+    font-size: 1rem;
+}
 
-/* --- RESPONSIVIDADE --- */
-@media(max-width: 768px) {
-    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--color-primary); }
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--color-light); flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-    .nav-links.active { display: flex; }
-    .nav-links a { margin: 1rem 0; }
-    .hero { height: 70vh; }
-    .hero-title { font-size: 3rem; }
-    .featured-grid, .footer-container { grid-template-columns: 1fr; }
-    .large-card { flex-direction: column; }
-    .large-card .card-image, .large-card .card-content { width: 100%; }
-    .quote-section blockquote { font-size: 1.75rem; }
-    .page-title { font-size: 2.5rem; }
-    .content-grid { grid-template-columns: 1fr; }
-    .sidebar { grid-row: 1; margin-bottom: 2rem; } /* Coloca a barra lateral em cima no mobile */
-    .thank-you-title { font-size: 2.2rem; }
+form input::placeholder {
+    color: var(--gray-text);
+}
+
+.cta-button {
+    background: var(--gold-accent);
+    color: var(--dark-bg);
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+}
+
+/* RODAPÉ */
+footer {
+    background: #111;
+    color: var(--gray-text);
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 2rem;
+}
+
+/* Página de Obrigado */
+.thank-you-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }

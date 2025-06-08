@@ -1,4 +1,4 @@
-/* --- CONFIGURAÇÃO GLOBAL E VARIÁVEIS --- */
+/* --- RAÍZES DO DESIGN: VARIÁVEIS E CONFIGURAÇÕES GLOBAIS --- */
 :root {
     --color-primary: #0D2D5B; /* Azul Marinho Profundo */
     --color-accent: #FDB813;  /* Dourado da sua logo */
@@ -103,7 +103,7 @@ body {
 
 .hamburger { display: none; } /* Escondido em desktop */
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION (PÁGINA INICIAL) --- */
 .hero {
     height: 90vh;
     display: flex;
@@ -143,7 +143,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* --- SEÇÃO DE DESTAQUES (FEATURED) --- */
+/* --- SEÇÃO DE DESTAQUES (PÁGINA INICIAL) --- */
 .featured-section {
     padding: 6rem 0;
     background-color: var(--color-off-white);
@@ -206,7 +206,7 @@ body {
     justify-content: center;
 }
 
-/* --- SEÇÃO DE CITAÇÃO --- */
+/* --- SEÇÃO DE CITAÇÃO (PÁGINA INICIAL) --- */
 .quote-section {
     padding: 6rem 0;
     text-align: center;
@@ -223,59 +223,7 @@ body {
     font-style: italic;
 }
 
-/* --- RODAPÉ --- */
-.footer {
-    background-color: var(--color-off-white);
-    color: var(--color-dark-text);
-    padding-top: 4rem;
-    border-top: 1px solid #e9ecef;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 2rem;
-    padding-bottom: 4rem;
-}
-
-.footer h4 {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    font-size: 1.25rem;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-.footer-links ul li a {
-    text-decoration: none;
-    color: var(--color-dark-text);
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 1.5rem 0;
-    border-top: 1px solid #e9ecef;
-    font-size: 0.9rem;
-}
-
-/* --- RESPONSIVIDADE --- */
-@media(max-width: 768px) {
-    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--color-primary); }
-    .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--color-light); flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
-    .nav-links.active { display: flex; }
-    .nav-links a { margin: 1rem 0; }
-    .hero { height: 70vh; }
-    .hero-title { font-size: 3rem; }
-    .featured-grid, .footer-container { grid-template-columns: 1fr; }
-    .large-card { flex-direction: column; }
-    .large-card .card-image, .large-card .card-content { width: 100%; }
-    .quote-section blockquote { font-size: 1.75rem; }
-}
-/* --- ESTILOS PARA PÁGINAS INTERNAS --- */
+/* --- ESTILOS PARA PÁGINAS INTERNAS (SOBRE) --- */
 .page-header {
     background: linear-gradient(rgba(13, 45, 91, 0.8), rgba(13, 45, 91, 0.8)), url('https://images.unsplash.com/photo-1518065703273-559a3a93354b?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
@@ -284,7 +232,7 @@ body {
     padding: 6rem 0;
     text-align: center;
     color: var(--color-light-text);
-    margin-top: 75px; /* Altura da navbar */
+    margin-top: 78px; /* Altura da navbar */
 }
 
 .page-title {
@@ -375,10 +323,100 @@ body {
     color: var(--color-dark-text);
 }
 
+/* --- ESTILOS PARA A PÁGINA DE OBRIGADO --- */
+.thank-you-page-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px); /* Subtrai a altura aproximada do rodapé */
+    text-align: center;
+    padding: 2rem;
+    margin-top: 78px;
+}
 
-/* --- RESPONSIVIDADE PÁGINAS INTERNAS --- */
+.thank-you-content {
+    max-width: 650px;
+}
+
+.thank-you-logo {
+    height: 80px;
+    margin-bottom: 2rem;
+}
+
+.thank-you-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 3rem;
+}
+
+.thank-you-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-dark-text);
+    margin: 1rem 0 2.5rem 0;
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: var(--color-off-white);
+    color: var(--color-dark-text);
+    padding-top: 4rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.footer h4 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+.footer-links ul li a {
+    text-decoration: none;
+    color: var(--color-dark-text);
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid #e9ecef;
+    font-size: 0.9rem;
+}
+.footer-sticky {
+    background-color: var(--color-off-white);
+    padding: 1.5rem 0;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+
+/* --- RESPONSIVIDADE --- */
 @media(max-width: 768px) {
+    .hamburger { display: block; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: var(--color-primary); }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--color-light); flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+    .nav-links.active { display: flex; }
+    .nav-links a { margin: 1rem 0; }
+    .hero { height: 70vh; }
+    .hero-title { font-size: 3rem; }
+    .featured-grid, .footer-container { grid-template-columns: 1fr; }
+    .large-card { flex-direction: column; }
+    .large-card .card-image, .large-card .card-content { width: 100%; }
+    .quote-section blockquote { font-size: 1.75rem; }
     .page-title { font-size: 2.5rem; }
     .content-grid { grid-template-columns: 1fr; }
     .sidebar { grid-row: 1; margin-bottom: 2rem; } /* Coloca a barra lateral em cima no mobile */
+    .thank-you-title { font-size: 2.2rem; }
 }

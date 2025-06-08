@@ -4,85 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Gustavo | Grupo Batalha no Céu</title>
-    <link rel="stylesheet" href="/site-teste-hesed/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <nav>
-        <div class="container nav-container">
-            <a href="#hero" class="nav-brand">
-                <img src="image.png" alt="Logo Grupo Batalha no Céu" class="nav-logo">
-                General Gustavo
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html" class="brand-logo">
+                <img src="image.png" alt="Logo Grupo Batalha no Céu">
+                <span>General Gustavo</span>
             </a>
-            <div class="nav-links" id="nav-links-menu"> <a href="#missao">A Missão</a>
-                <a href="#exercito">O Exército</a>
-                <a href="#junte-se">Alistar-se</a>
-                <a href="#contato">Contato</a>
-            </div>
-            <button class="hamburger" id="hamburger-menu">&#9776;</button> </div>
-    </nav>
-
-    <header id="hero">
-        <div class="hero-content">
-            <h1>QUEM COMO DEUS?</h1>
-            <p>UMA MILÍCIA DE ORAÇÃO A SERVIÇO DA SANTA IGREJA</p>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">O Exército</a>
+                <a href="#">Formação</a>
+                <a href="artigo-exemplo.html">Artigo</a>
+                <a href="#" class="nav-button">Aliste-se</a>
+            </nav>
+            <button class="hamburger-menu">&#9776;</button>
         </div>
     </header>
 
-    <main>
-        <section id="missao" class="animated-section">
-            <div class="container card">
-                <div class="flex-container">
-                    <div class="image-content">
-                        <img src="sua-foto.jpg" alt="Foto do General Gustavo">
-                    </div>
-                    <div class="text-content">
-                        <h2>UMA VIDA A SERVIÇO DO COMBATE</h2>
-                        <p>A liderança do <strong>Grupo Batalha no Céu</strong> não é um título, mas uma consagração. Como General e administrador do <strong>Pelotão 7.9</strong>, minha missão é, pela graça de Deus, formar intercessores e combatentes espirituais. Orientamos nossos soldados — e outros generais em formação — no uso das armas da fé: o jejum, a oração e o estudo da sã doutrina, para a defesa das famílias e da Santa Igreja.</p>
-                    </div>
+    <main class="homepage-main">
+        <div class="container main-grid">
+            <section class="featured-post">
+                <article class="post-card">
+                    <a href="artigo-exemplo.html">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1597321526495-ac9f71517d47?q=80&w=2070&auto=format&fit=crop" alt="São Miguel Arcanjo">
+                        </div>
+                        <div class="card-content">
+                            <p class="card-category">Mensagem do General</p>
+                            <h3>O Combate Espiritual nos Dias Atuais: Uma Chamada à Santidade</h3>
+                            <p>Em um mundo que se afasta cada vez mais de Deus, somos chamados a ser uma muralha de intercessão e uma força de combate contra as ciladas do demônio. A tibieza não é uma opção para aqueles que desejam o Céu...</p>
+                        </div>
+                    </a>
+                </article>
+            </section>
+
+            <section class="secondary-posts">
+                <article class="post-card">
+                    <a href="#">
+                        <div class="card-image">
+                             <img src="https://images.unsplash.com/photo-1518065703273-559a3a93354b?q=80&w=2070&auto=format&fit=crop" alt="Igreja">
+                        </div>
+                        <div class="card-content">
+                            <p class="card-category">O Exército</p>
+                            <h3>O que é o Exército de São Miguel?</h3>
+                        </div>
+                    </a>
+                </article>
+                <article class="post-card">
+                    <a href="#">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1628156994503-b6fb898ainge?q=80&w=1887&auto=format&fit=crop" alt="Bíblia e Rosário">
+                        </div>
+                        <div class="card-content">
+                            <p class="card-category">Formação</p>
+                            <h3>As Armas do Combatente: Oração e Jejum</h3>
+                        </div>
+                    </a>
+                </article>
+            </section>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget profile-widget">
+                    <img src="sua-foto.jpg" alt="General Gustavo">
+                    <h4>General Gustavo</h4>
+                    <p>Administrador do Pelotão 7.9, a serviço do Exército de São Miguel.</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="exercito" class="animated-section">
-            <div class="container card">
-                <h2>O QUE É O EXÉRCITO DE SÃO MIGUEL?</h2>
-                <p>O Exército de São Miguel é um apostolado do Instituto Hesed. Uma milícia de almas que, em todo o mundo, se levanta para combater o mal através da adoração e da intercessão. Nossa principal arma é a <strong>Quaresma de São Miguel</strong>, um período de 40 dias de intensa oração e penitência. Não somos uma força terrena, mas uma legião que, de joelhos, luta as batalhas de Deus.</p>
-                <p class="lema">"São Miguel Arcanjo, defendei-nos no combate!"</p>
-            </div>
-        </section>
-
-        <section id="junte-se" class="animated-section">
-            <div class="container card">
-                <h2>O COMBATE O CHAMA. ALISTE-SE.</h2>
-                <p>A batalha pela salvação das almas é real e acontece agora. Se você sente em seu coração o chamado para deixar a tibieza e empunhar as armas da fé, seu lugar é aqui. Preencha os campos abaixo para iniciar seu alistamento no Grupo Batalha no Céu.</p>
-                <form action="obrigado.html">
-                    <input type="text" name="nome" placeholder="Seu Nome Completo" required>
-                    <input type="email" name="email" placeholder="Seu Melhor E-mail" required>
-                    <button type="submit" class="cta-button">Quero me Alistar!</button>
-                </form>
-            </div>
-        </section>
+                <div class="sidebar-widget cta-widget">
+                    <h4>O Combate o Chama</h4>
+                    <p>Sinta o chamado para lutar o bom combate e junte-se às fileiras do Grupo Batalha no Céu.</p>
+                    <a href="#" class="cta-button">Aliste-se Agora</a>
+                </div>
+            </aside>
+        </div>
     </main>
 
-    <footer id="contato">
-        <div class="container">
-            <p><strong>General Gustavo</strong> | Administrador do Pelotão 7.9</p>
-            <p>&copy; 2025 Grupo Batalha no Céu - Todos os Direitos Reservados.</p>
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-column">
+                <h4>General Gustavo</h4>
+                <p>Líder do Grupo Batalha no Céu, um pelotão do Exército de São Miguel. Administrador do Pelotão 7.9.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#">Sobre o General</a></li>
+                    <li><a href="#">O Exército de São Miguel</a></li>
+                    <li><a href="#">Formação do Combatente</a></li>
+                    <li><a href="#">Links e Recursos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <p>Para pedidos de oração e outras solicitações, entre em contato.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 General Gustavo. Todos os direitos reservados.
         </div>
     </footer>
-    
-    <script>
-        // Adicionei IDs únicos para garantir que não haja conflitos futuros
-        const hamburger = document.getElementById('hamburger-menu');
-        const navLinks = document.getElementById('nav-links-menu');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>

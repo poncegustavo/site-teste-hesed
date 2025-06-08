@@ -4,60 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>General Gustavo | Grupo Batalha no Céu</title>
+    <link rel="stylesheet" href="https://poncegustavo.github.io/site-teste-hesed/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://poncegustavo.github.io/site-teste-hesed/style.css">
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <img src="https://poncegustavo.github.io/site-teste-hesed/images/image.png" alt="Logo Grupo Batalha no Céu" class="hero-logo">
-            <h1>Grupo Batalha no Céu</h1>
-            <p>Pelotão 7.9 do Exército de São Miguel</p>
-            <a href="#missao" class="scroll-down-link">Descubra a Missão</a>
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-brand">
+                <img src="https://poncegustavo.github.io/site-teste-hesed/images/image.png" alt="Logo" class="nav-logo">
+                <span class="nav-brand-text">General Gustavo</span>
+            </a>
+            <nav class="main-nav">
+                <a href="index.html" class="active">Início</a>
+                <a href="#">Sobre</a>
+                <a href="#">O Exército</a>
+                <a href="#">Formação</a>
+                <a href="#" class="nav-button">Aliste-se</a>
+            </nav>
+            <button class="hamburger">&#9776;</button>
         </div>
     </header>
 
     <main>
-        <section id="missao" class="content-section">
+        <section class="hero">
+            <h1>A Batalha Pela Sua Alma Começa Agora</h1>
+            <p>Junte-se ao Grupo Batalha no Céu e seja uma sentinela da fé no Exército de São Miguel.</p>
+            <a href="#" class="cta-button">Alistar-se no Pelotão</a>
+        </section>
+
+        <section class="content-section">
             <div class="container">
                 <div class="section-grid">
                     <div class="section-image">
                         <img src="https://poncegustavo.github.io/site-teste-hesed/images/sua-foto.jpg" alt="General Gustavo">
                     </div>
                     <div class="section-text">
-                        <h2 class="section-title">A Missão do General Gustavo</h2>
-                        <p>Nossa vocação é o combate espiritual. Como administrador do Pelotão 7.9, minha missão é forjar soldados para Cristo: almas disciplinadas na oração, firmes na doutrina e corajosas na intercessão pela Santa Igreja e pela salvação das almas. Não lutamos por glórias terrenas, mas pela Coroa da Vida Eterna.</p>
+                        <h3>Liderança Forjada no Combate</h3>
+                        <p>Sob o comando do General Gustavo, administrador do Pelotão 7.9, o Grupo Batalha no Céu é uma frente de intercessão e formação. Nossa missão é forjar soldados para Cristo, com disciplina, estudo da sã doutrina e uma vida de oração robusta para a defesa da Santa Igreja.</p>
+                        <a href="#" class="cta-button secondary-button">Conheça o General</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="exercito" class="content-section darker">
-            <div class="container text-center">
-                <h2 class="section-title">O Exército de São Miguel</h2>
-                <p class="section-subtitle">"São Miguel Arcanjo, defendei-nos no combate, sede o nosso refúgio contra as maldades e ciladas do demônio."</p>
-                <p>Somos uma milícia de oração a serviço da Igreja, inspirada pelo Instituto Hesed. Uma legião que se levanta nas madrugadas para, de joelhos, lutar as batalhas de Deus. Nossa principal arma é a oração da Quaresma de São Miguel e a devoção ao Santo Rosário.</p>
+        <section class="darker-section">
+            <div class="content-section container text-center">
+                <h2 class="section-title">O Que é o Exército de São Miguel?</h2>
+                <p class="section-subtitle">O Exército de São Miguel é um apostolado mundial do Instituto Hesed. Uma milícia de almas que se levanta para combater o mal através da adoração e da intercessão.</p>
+                <a href="#" class="cta-button secondary-button">A História do Exército</a>
             </div>
         </section>
 
-        <section id="alistamento" class="content-section">
-            <div class="container">
+        <section class="content-section">
+             <div class="container">
                 <div class="cta-card">
                     <h2 class="section-title">O Combate o Chama</h2>
-                    <p>A tibieza não é uma opção. Se você sente o chamado para ser uma sentinela da fé, seu lugar é aqui.</p>
-                    <form class="enlist-form" action="obrigado.html">
-                        <input type="email" placeholder="Digite seu melhor e-mail para se alistar" required>
-                        <button type="submit">Avançar</button>
-                    </form>
+                    <p class="section-subtitle">A tibieza não é uma opção. Se você sente o chamado para ser uma sentinela da fé e lutar pela salvação das almas, seu lugar é aqui.</p>
+                    <a href="https://chat.whatsapp.com/DIDJcbVlyW4AK61vnehBNQ" target="_blank" class="cta-button">Entrar no Grupo de WhatsApp</a>
                 </div>
             </div>
         </section>
     </main>
-
+    
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 - General Gustavo | Grupo Batalha no Céu</p>
